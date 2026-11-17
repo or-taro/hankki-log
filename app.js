@@ -1,6 +1,6 @@
 'use strict';
 /* 한끼로그 1단계 — 서버 없음. 데이터는 이 브라우저의 IndexedDB에만 저장한다. */
-const VERSION = '0.3.1';
+const VERSION = '0.3.2';
 const MAX_PHOTOS = 10, MAX_BYTES = 30 * 1024 * 1024, LONG_EDGE = 1600, MAX_CAPTION = 2200, MAX_TAGS = 5;
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const errors = [];
