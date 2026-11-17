@@ -1,0 +1,2362 @@
+{
+"version": "2026-11-17",
+"basis": "가식부 100g당",
+"items": [
+{
+"id": "rice",
+"ko": "밥(백미)",
+"aliases": [
+"쌀밥",
+"흰밥",
+"공기밥"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 130.0,
+"protein": 2.36,
+"fat": 0.19,
+"carb": 28.73,
+"fiber": null,
+"sugar": null,
+"sodium": 0.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20053",
+"desc": "Rice, white, short-grain, cooked"
+}
+},
+{
+"id": "brown_rice",
+"ko": "현미밥",
+"aliases": [
+"현미"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 112.0,
+"protein": 2.32,
+"fat": 0.83,
+"carb": 23.51,
+"fiber": 1.8,
+"sugar": null,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20041",
+"desc": "Rice, brown, medium-grain, cooked"
+}
+},
+{
+"id": "glutinous_rice",
+"ko": "찹쌀밥",
+"aliases": [
+"찹쌀"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 97.0,
+"protein": 2.02,
+"fat": 0.19,
+"carb": 21.09,
+"fiber": 1.0,
+"sugar": 0.05,
+"sodium": 5.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20055",
+"desc": "Rice, white, glutinous, cooked"
+}
+},
+{
+"id": "noodle_wheat",
+"ko": "국수(삶은 면)",
+"aliases": [
+"소면",
+"중면",
+"칼국수면",
+"우동면"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 138.0,
+"protein": 4.54,
+"fat": 2.07,
+"carb": 25.16,
+"fiber": 1.2,
+"sugar": 0.4,
+"sodium": 5.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20110",
+"desc": "Noodles, egg, cooked, enriched"
+}
+},
+{
+"id": "spaghetti",
+"ko": "파스타(삶은 면)",
+"aliases": [
+"스파게티",
+"파스타"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 158.0,
+"protein": 5.8,
+"fat": 0.93,
+"carb": 30.86,
+"fiber": 1.8,
+"sugar": 0.56,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20121",
+"desc": "Spaghetti, cooked, enriched, without added salt"
+}
+},
+{
+"id": "soba",
+"ko": "메밀국수(삶은 면)",
+"aliases": [
+"메밀면",
+"소바",
+"냉면"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 99.0,
+"protein": 5.06,
+"fat": 0.1,
+"carb": 21.44,
+"fiber": null,
+"sugar": null,
+"sodium": 60.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20115",
+"desc": "Noodles, japanese, soba, cooked"
+}
+},
+{
+"id": "rice_noodle",
+"ko": "쌀국수(삶은 면)",
+"aliases": [
+"쌀면"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 108.0,
+"protein": 1.79,
+"fat": 0.2,
+"carb": 24.01,
+"fiber": 1.0,
+"sugar": 0.03,
+"sodium": 19.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20134",
+"desc": "Rice noodles, cooked"
+}
+},
+{
+"id": "glass_noodle",
+"ko": "당면(마른 것)",
+"aliases": [
+"잡채면"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 351.0,
+"protein": 0.16,
+"fat": 0.06,
+"carb": 86.09,
+"fiber": 0.5,
+"sugar": 0.0,
+"sodium": 10.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16082",
+"desc": "Noodles, chinese, cellophane or long rice (mung beans), dehydrated"
+}
+},
+{
+"id": "bread",
+"ko": "식빵",
+"aliases": [
+"빵"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 265.0,
+"protein": 9.15,
+"fat": 3.19,
+"carb": 49.06,
+"fiber": 2.7,
+"sugar": 5.07,
+"sodium": 491.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "18069",
+"desc": "Bread, white, commercially prepared (includes soft bread crumbs)"
+},
+"piece_g": 28
+},
+{
+"id": "flour",
+"ko": "밀가루",
+"aliases": [
+"부침가루",
+"중력분"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 364.0,
+"protein": 10.33,
+"fat": 0.98,
+"carb": 76.31,
+"fiber": 2.7,
+"sugar": 0.27,
+"sodium": 2.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20081",
+"desc": "Wheat flour, white, all-purpose, enriched, bleached"
+}
+},
+{
+"id": "oats",
+"ko": "오트밀(마른 것)",
+"aliases": [
+"귀리"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 379.0,
+"protein": 13.15,
+"fat": 6.52,
+"carb": 67.7,
+"fiber": 10.1,
+"sugar": 0.99,
+"sodium": 6.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "08120",
+"desc": "Cereals, oats, regular and quick, not fortified, dry"
+}
+},
+{
+"id": "starch",
+"ko": "전분",
+"aliases": [
+"녹말",
+"옥수수전분",
+"감자전분"
+],
+"cat": "곡류",
+"per100": {
+"kcal": 381.0,
+"protein": 0.26,
+"fat": 0.05,
+"carb": 91.27,
+"fiber": 0.9,
+"sugar": 0.0,
+"sodium": 9.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "20027",
+"desc": "Cornstarch"
+}
+},
+{
+"id": "potato",
+"ko": "감자",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 69.0,
+"protein": 1.68,
+"fat": 0.1,
+"carb": 15.71,
+"fiber": 2.4,
+"sugar": 1.15,
+"sodium": 16.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11354",
+"desc": "Potatoes, white, flesh and skin, raw"
+},
+"piece_g": 150
+},
+{
+"id": "sweet_potato",
+"ko": "고구마",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 86.0,
+"protein": 1.57,
+"fat": 0.05,
+"carb": 20.12,
+"fiber": 3.0,
+"sugar": 4.18,
+"sodium": 55.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11507",
+"desc": "Sweet potato, raw, unprepared"
+},
+"piece_g": 150
+},
+{
+"id": "corn",
+"ko": "옥수수",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 86.0,
+"protein": 3.27,
+"fat": 1.35,
+"carb": 18.7,
+"fiber": 2.0,
+"sugar": 6.26,
+"sodium": 15.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11167",
+"desc": "Corn, sweet, yellow, raw"
+},
+"piece_g": 90
+},
+{
+"id": "egg",
+"ko": "달걀",
+"aliases": [
+"계란",
+"달걀(전란)"
+],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 143.0,
+"protein": 12.56,
+"fat": 9.51,
+"carb": 0.72,
+"fiber": 0.0,
+"sugar": 0.37,
+"sodium": 142.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01123",
+"desc": "Egg, whole, raw, fresh"
+},
+"piece_g": 50
+},
+{
+"id": "egg_white",
+"ko": "달걀흰자",
+"aliases": [
+"계란흰자"
+],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 52.0,
+"protein": 10.9,
+"fat": 0.17,
+"carb": 0.73,
+"fiber": 0.0,
+"sugar": 0.71,
+"sodium": 166.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01124",
+"desc": "Egg, white, raw, fresh"
+},
+"piece_g": 33
+},
+{
+"id": "egg_yolk",
+"ko": "달걀노른자",
+"aliases": [
+"계란노른자"
+],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 322.0,
+"protein": 15.86,
+"fat": 26.54,
+"carb": 3.59,
+"fiber": 0.0,
+"sugar": 0.56,
+"sodium": 48.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01125",
+"desc": "Egg, yolk, raw, fresh"
+},
+"piece_g": 17
+},
+{
+"id": "milk",
+"ko": "우유",
+"aliases": [],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 61.0,
+"protein": 3.15,
+"fat": 3.25,
+"carb": 4.8,
+"fiber": 0.0,
+"sugar": 5.05,
+"sodium": 43.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01077",
+"desc": "Milk, whole, 3.25% milkfat, with added vitamin D"
+},
+"tbsp_g": 15.0
+},
+{
+"id": "yogurt",
+"ko": "플레인 요거트",
+"aliases": [
+"요구르트",
+"요거트"
+],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 61.0,
+"protein": 3.47,
+"fat": 3.25,
+"carb": 4.66,
+"fiber": 0.0,
+"sugar": 4.66,
+"sodium": 46.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01116",
+"desc": "Yogurt, plain, whole milk, 8 grams protein per 8 ounce"
+}
+},
+{
+"id": "mozzarella",
+"ko": "모차렐라 치즈",
+"aliases": [
+"피자치즈",
+"모짜렐라"
+],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 300.0,
+"protein": 22.17,
+"fat": 22.35,
+"carb": 2.19,
+"fiber": 0.0,
+"sugar": 1.03,
+"sodium": 627.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01026",
+"desc": "Cheese, mozzarella, whole milk"
+}
+},
+{
+"id": "cheddar",
+"ko": "체다 치즈",
+"aliases": [
+"슬라이스치즈",
+"치즈"
+],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 403.0,
+"protein": 24.9,
+"fat": 33.14,
+"carb": 1.28,
+"fiber": 0.0,
+"sugar": 0.52,
+"sodium": 621.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01009",
+"desc": "Cheese, cheddar"
+},
+"piece_g": 20
+},
+{
+"id": "butter",
+"ko": "버터",
+"aliases": [],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 717.0,
+"protein": 0.85,
+"fat": 81.11,
+"carb": 0.06,
+"fiber": 0.0,
+"sugar": 0.06,
+"sodium": 643.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01001",
+"desc": "Butter, salted"
+},
+"tbsp_g": 14.2
+},
+{
+"id": "cream",
+"ko": "생크림",
+"aliases": [],
+"cat": "달걀·유제품",
+"per100": {
+"kcal": 345.0,
+"protein": 2.05,
+"fat": 37.0,
+"carb": 2.79,
+"fiber": 0.0,
+"sugar": 2.79,
+"sodium": 38.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "01053",
+"desc": "Cream, fluid, heavy whipping"
+},
+"tbsp_g": 15.0
+},
+{
+"id": "tofu",
+"ko": "두부",
+"aliases": [
+"부침두부",
+"찌개두부"
+],
+"cat": "콩·두부",
+"per100": {
+"kcal": 70.0,
+"protein": 8.19,
+"fat": 4.17,
+"carb": 1.69,
+"fiber": 0.9,
+"sugar": 0.6,
+"sodium": 12.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16126",
+"desc": "Tofu, firm, prepared with calcium sulfate and magnesium chloride (nigari)"
+}
+},
+{
+"id": "soymilk",
+"ko": "두유",
+"aliases": [],
+"cat": "콩·두부",
+"per100": {
+"kcal": 54.0,
+"protein": 3.27,
+"fat": 1.75,
+"carb": 6.28,
+"fiber": 0.6,
+"sugar": 3.99,
+"sodium": 51.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16120",
+"desc": "Soymilk, original and vanilla, unfortified"
+}
+},
+{
+"id": "chickpea",
+"ko": "병아리콩(삶은 것)",
+"aliases": [],
+"cat": "콩·두부",
+"per100": {
+"kcal": 164.0,
+"protein": 8.86,
+"fat": 2.59,
+"carb": 27.42,
+"fiber": 7.6,
+"sugar": 4.8,
+"sodium": 7.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16057",
+"desc": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt"
+}
+},
+{
+"id": "kidney_bean",
+"ko": "강낭콩(삶은 것)",
+"aliases": [],
+"cat": "콩·두부",
+"per100": {
+"kcal": 127.0,
+"protein": 8.67,
+"fat": 0.5,
+"carb": 22.8,
+"fiber": 6.4,
+"sugar": 0.32,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16028",
+"desc": "Beans, kidney, all types, mature seeds, cooked, boiled, without salt"
+},
+"tbsp_g": 11.0
+},
+{
+"id": "chicken_breast",
+"ko": "닭가슴살",
+"aliases": [
+"닭 가슴살"
+],
+"cat": "고기",
+"per100": {
+"kcal": 120.0,
+"protein": 22.5,
+"fat": 2.62,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 45.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "05062",
+"desc": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw"
+}
+},
+{
+"id": "chicken_thigh",
+"ko": "닭다리살",
+"aliases": [
+"닭 정육",
+"닭다리 정육"
+],
+"cat": "고기",
+"per100": {
+"kcal": 121.0,
+"protein": 19.66,
+"fat": 4.12,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 95.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "05096",
+"desc": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw"
+}
+},
+{
+"id": "chicken_drum",
+"ko": "닭다리(껍질 포함)",
+"aliases": [
+"북채",
+"닭봉"
+],
+"cat": "고기",
+"per100": {
+"kcal": 161.0,
+"protein": 18.08,
+"fat": 9.2,
+"carb": 0.11,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 106.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "05066",
+"desc": "Chicken, broilers or fryers, drumstick, meat and skin, raw"
+}
+},
+{
+"id": "pork_belly",
+"ko": "삼겹살",
+"aliases": [
+"돼지 삼겹살"
+],
+"cat": "고기",
+"per100": {
+"kcal": 518.0,
+"protein": 9.34,
+"fat": 53.01,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 32.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "10005",
+"desc": "Pork, fresh, belly, raw"
+}
+},
+{
+"id": "pork_shoulder",
+"ko": "돼지 앞다리살",
+"aliases": [
+"앞다리살",
+"돼지고기",
+"목살"
+],
+"cat": "고기",
+"per100": {
+"kcal": 236.0,
+"protein": 17.18,
+"fat": 17.99,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 65.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "10070",
+"desc": "Pork, fresh, shoulder, whole, separable lean and fat, raw"
+}
+},
+{
+"id": "pork_tender",
+"ko": "돼지 안심",
+"aliases": [
+"안심"
+],
+"cat": "고기",
+"per100": {
+"kcal": 109.0,
+"protein": 20.95,
+"fat": 2.17,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 53.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "10060",
+"desc": "Pork, fresh, loin, tenderloin, separable lean only, raw"
+}
+},
+{
+"id": "beef_ground",
+"ko": "다진 소고기",
+"aliases": [
+"소고기 다짐육",
+"간 소고기"
+],
+"cat": "고기",
+"per100": {
+"kcal": 215.0,
+"protein": 18.59,
+"fat": 15.0,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 66.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "23567",
+"desc": "Beef, ground, 85% lean meat / 15% fat, raw"
+}
+},
+{
+"id": "beef_chuck",
+"ko": "소고기(목심·살코기)",
+"aliases": [
+"소고기",
+"국거리 소고기",
+"불고기용"
+],
+"cat": "고기",
+"per100": {
+"kcal": 140.0,
+"protein": 21.13,
+"fat": 6.07,
+"carb": 0.31,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 81.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "13293",
+"desc": "Beef, chuck, under blade pot roast or steak, boneless, separable lean only, trimmed to 0\" fat, all grades, raw"
+}
+},
+{
+"id": "beef_ribeye",
+"ko": "소고기 등심(살코기)",
+"aliases": [
+"등심"
+],
+"cat": "고기",
+"per100": {
+"kcal": 133.0,
+"protein": 22.66,
+"fat": 4.66,
+"carb": 0.04,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 66.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "23263",
+"desc": "Beef, ribeye  petite roast/filet, boneless, separable lean only, trimmed to 0\" fat, all grades, raw"
+}
+},
+{
+"id": "ham",
+"ko": "햄(슬라이스)",
+"aliases": [
+"햄"
+],
+"cat": "고기",
+"per100": {
+"kcal": 163.0,
+"protein": 16.6,
+"fat": 8.6,
+"carb": 3.83,
+"fiber": 1.3,
+"sugar": 0.0,
+"sodium": 1143.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "07029",
+"desc": "Ham, sliced, regular (approximately 11% fat)"
+}
+},
+{
+"id": "sausage",
+"ko": "소시지(익힌 것)",
+"aliases": [
+"소세지"
+],
+"cat": "고기",
+"per100": {
+"kcal": 325.0,
+"protein": 18.53,
+"fat": 27.25,
+"carb": 1.42,
+"fiber": 0.0,
+"sugar": 1.09,
+"sodium": 814.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "07064",
+"desc": "Pork sausage, link/patty, cooked, pan-fried"
+}
+},
+{
+"id": "salmon",
+"ko": "연어",
+"aliases": [
+"생연어"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 208.0,
+"protein": 20.42,
+"fat": 13.42,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": null,
+"sodium": 59.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15236",
+"desc": "Fish, salmon, Atlantic, farmed, raw"
+}
+},
+{
+"id": "mackerel",
+"ko": "고등어",
+"aliases": [],
+"cat": "해산물",
+"per100": {
+"kcal": 205.0,
+"protein": 18.6,
+"fat": 13.89,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 90.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15046",
+"desc": "Fish, mackerel, Atlantic, raw"
+}
+},
+{
+"id": "cod",
+"ko": "대구",
+"aliases": [
+"대구살",
+"흰살생선"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 82.0,
+"protein": 17.81,
+"fat": 0.67,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 54.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15015",
+"desc": "Fish, cod, Atlantic, raw"
+}
+},
+{
+"id": "pollock",
+"ko": "명태",
+"aliases": [
+"동태",
+"황태(생)"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 56.0,
+"protein": 12.19,
+"fat": 0.41,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 333.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15066",
+"desc": "Fish, pollock, Alaska, raw"
+}
+},
+{
+"id": "tuna_can",
+"ko": "참치 통조림(물에 담근 것, 물기 뺀 것)",
+"aliases": [
+"참치캔",
+"참치"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 86.0,
+"protein": 19.44,
+"fat": 0.96,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 247.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15121",
+"desc": "Fish, tuna, light, canned in water, drained solids"
+}
+},
+{
+"id": "shrimp",
+"ko": "새우",
+"aliases": [
+"생새우",
+"칵테일새우"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 71.0,
+"protein": 13.61,
+"fat": 1.01,
+"carb": 0.91,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 566.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15149",
+"desc": "Crustaceans, shrimp, mixed species, raw"
+}
+},
+{
+"id": "squid",
+"ko": "오징어",
+"aliases": [],
+"cat": "해산물",
+"per100": {
+"kcal": 92.0,
+"protein": 15.58,
+"fat": 1.38,
+"carb": 3.08,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 44.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15175",
+"desc": "Mollusks, squid, mixed species, raw"
+}
+},
+{
+"id": "clam",
+"ko": "조개",
+"aliases": [
+"바지락",
+"모시조개"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 86.0,
+"protein": 14.67,
+"fat": 0.96,
+"carb": 3.57,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 601.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15157",
+"desc": "Mollusks, clam, mixed species, raw"
+}
+},
+{
+"id": "oyster",
+"ko": "굴",
+"aliases": [
+"생굴"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 51.0,
+"protein": 5.71,
+"fat": 1.71,
+"carb": 2.72,
+"fiber": 0.0,
+"sugar": 0.62,
+"sodium": 85.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15167",
+"desc": "Mollusks, oyster, eastern, wild, raw"
+}
+},
+{
+"id": "crab",
+"ko": "게살",
+"aliases": [
+"꽃게"
+],
+"cat": "해산물",
+"per100": {
+"kcal": 87.0,
+"protein": 18.06,
+"fat": 1.08,
+"carb": 0.04,
+"fiber": 0.0,
+"sugar": null,
+"sodium": 293.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15139",
+"desc": "Crustaceans, crab, blue, raw"
+}
+},
+{
+"id": "anchovy",
+"ko": "멸치(생)",
+"aliases": [],
+"cat": "해산물",
+"per100": {
+"kcal": 131.0,
+"protein": 20.35,
+"fat": 4.84,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 104.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "15001",
+"desc": "Fish, anchovy, european, raw"
+}
+},
+{
+"id": "laver",
+"ko": "김(생)",
+"aliases": [],
+"cat": "해조류",
+"per100": {
+"kcal": 35.0,
+"protein": 5.81,
+"fat": 0.28,
+"carb": 5.11,
+"fiber": 0.3,
+"sugar": 0.49,
+"sodium": 48.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11446",
+"desc": "Seaweed, laver, raw"
+}
+},
+{
+"id": "wakame",
+"ko": "미역(생)",
+"aliases": [
+"불린 미역"
+],
+"cat": "해조류",
+"per100": {
+"kcal": 45.0,
+"protein": 3.03,
+"fat": 0.64,
+"carb": 9.14,
+"fiber": 0.5,
+"sugar": 0.65,
+"sodium": 872.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11669",
+"desc": "Seaweed, wakame, raw"
+}
+},
+{
+"id": "kelp",
+"ko": "다시마(생)",
+"aliases": [],
+"cat": "해조류",
+"per100": {
+"kcal": 43.0,
+"protein": 1.68,
+"fat": 0.56,
+"carb": 9.57,
+"fiber": 1.3,
+"sugar": 0.6,
+"sodium": 233.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11445",
+"desc": "Seaweed, kelp, raw"
+}
+},
+{
+"id": "onion",
+"ko": "양파",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 40.0,
+"protein": 1.1,
+"fat": 0.1,
+"carb": 9.34,
+"fiber": 1.7,
+"sugar": 4.24,
+"sodium": 4.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11282",
+"desc": "Onions, raw"
+},
+"piece_g": 200
+},
+{
+"id": "green_onion",
+"ko": "대파·쪽파",
+"aliases": [
+"파",
+"대파",
+"쪽파",
+"실파"
+],
+"cat": "채소",
+"per100": {
+"kcal": 32.0,
+"protein": 1.83,
+"fat": 0.19,
+"carb": 7.34,
+"fiber": 2.6,
+"sugar": 2.33,
+"sodium": 16.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11291",
+"desc": "Onions, spring or scallions (includes tops and bulb), raw"
+}
+},
+{
+"id": "garlic",
+"ko": "마늘",
+"aliases": [
+"다진 마늘",
+"통마늘"
+],
+"cat": "채소",
+"per100": {
+"kcal": 149.0,
+"protein": 6.36,
+"fat": 0.5,
+"carb": 33.06,
+"fiber": 2.1,
+"sugar": 1.0,
+"sodium": 17.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11215",
+"desc": "Garlic, raw"
+},
+"piece_g": 5
+},
+{
+"id": "ginger",
+"ko": "생강",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 80.0,
+"protein": 1.82,
+"fat": 0.75,
+"carb": 17.77,
+"fiber": 2.0,
+"sugar": 1.7,
+"sodium": 13.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11216",
+"desc": "Ginger root, raw"
+}
+},
+{
+"id": "carrot",
+"ko": "당근",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 41.0,
+"protein": 0.93,
+"fat": 0.24,
+"carb": 9.58,
+"fiber": 2.8,
+"sugar": 4.74,
+"sodium": 69.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11124",
+"desc": "Carrots, raw"
+},
+"piece_g": 150
+},
+{
+"id": "cabbage",
+"ko": "양배추",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 25.0,
+"protein": 1.28,
+"fat": 0.1,
+"carb": 5.8,
+"fiber": 2.5,
+"sugar": 3.2,
+"sodium": 18.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11109",
+"desc": "Cabbage, raw"
+}
+},
+{
+"id": "napa",
+"ko": "배추",
+"aliases": [
+"알배추"
+],
+"cat": "채소",
+"per100": {
+"kcal": 16.0,
+"protein": 1.2,
+"fat": 0.2,
+"carb": 3.23,
+"fiber": 1.2,
+"sugar": 1.41,
+"sodium": 9.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11119",
+"desc": "Cabbage, chinese (pe-tsai), raw"
+}
+},
+{
+"id": "bok_choy",
+"ko": "청경채",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 13.0,
+"protein": 1.5,
+"fat": 0.2,
+"carb": 2.18,
+"fiber": 1.0,
+"sugar": 1.18,
+"sodium": 65.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11116",
+"desc": "Cabbage, chinese (pak-choi), raw"
+}
+},
+{
+"id": "spinach",
+"ko": "시금치",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 23.0,
+"protein": 2.86,
+"fat": 0.39,
+"carb": 3.63,
+"fiber": 2.2,
+"sugar": 0.42,
+"sodium": 79.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11457",
+"desc": "Spinach, raw"
+}
+},
+{
+"id": "broccoli",
+"ko": "브로콜리",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 34.0,
+"protein": 2.82,
+"fat": 0.37,
+"carb": 6.64,
+"fiber": 2.6,
+"sugar": 1.7,
+"sodium": 33.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11090",
+"desc": "Broccoli, raw"
+}
+},
+{
+"id": "zucchini",
+"ko": "애호박",
+"aliases": [
+"주키니",
+"호박"
+],
+"cat": "채소",
+"per100": {
+"kcal": 17.0,
+"protein": 1.21,
+"fat": 0.32,
+"carb": 3.11,
+"fiber": 1.0,
+"sugar": 2.5,
+"sodium": 8.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11477",
+"desc": "Squash, summer, zucchini, includes skin, raw"
+},
+"piece_g": 270
+},
+{
+"id": "pumpkin",
+"ko": "단호박",
+"aliases": [
+"늙은호박"
+],
+"cat": "채소",
+"per100": {
+"kcal": 45.0,
+"protein": 1.0,
+"fat": 0.1,
+"carb": 11.69,
+"fiber": 2.0,
+"sugar": 2.2,
+"sodium": 4.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11485",
+"desc": "Squash, winter, butternut, raw"
+}
+},
+{
+"id": "radish",
+"ko": "무",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 18.0,
+"protein": 0.6,
+"fat": 0.1,
+"carb": 4.1,
+"fiber": 1.6,
+"sugar": 2.5,
+"sodium": 21.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11430",
+"desc": "Radishes, oriental, raw"
+}
+},
+{
+"id": "cucumber",
+"ko": "오이",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 15.0,
+"protein": 0.65,
+"fat": 0.11,
+"carb": 3.63,
+"fiber": 0.5,
+"sugar": 1.67,
+"sodium": 2.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11205",
+"desc": "Cucumber, with peel, raw"
+},
+"piece_g": 200
+},
+{
+"id": "tomato",
+"ko": "토마토",
+"aliases": [
+"방울토마토"
+],
+"cat": "채소",
+"per100": {
+"kcal": 18.0,
+"protein": 0.88,
+"fat": 0.2,
+"carb": 3.89,
+"fiber": 1.2,
+"sugar": 2.63,
+"sodium": 5.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11529",
+"desc": "Tomatoes, red, ripe, raw, year round average"
+},
+"piece_g": 150
+},
+{
+"id": "lettuce",
+"ko": "상추",
+"aliases": [
+"잎채소"
+],
+"cat": "채소",
+"per100": {
+"kcal": 15.0,
+"protein": 1.36,
+"fat": 0.15,
+"carb": 2.87,
+"fiber": 1.3,
+"sugar": 0.78,
+"sodium": 28.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11253",
+"desc": "Lettuce, green leaf, raw"
+}
+},
+{
+"id": "kale",
+"ko": "케일",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 49.0,
+"protein": 4.28,
+"fat": 0.93,
+"carb": 8.75,
+"fiber": 3.6,
+"sugar": 2.26,
+"sodium": 38.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11233",
+"desc": "Kale, raw"
+}
+},
+{
+"id": "paprika",
+"ko": "파프리카(빨강)",
+"aliases": [
+"파프리카",
+"피망"
+],
+"cat": "채소",
+"per100": {
+"kcal": 31.0,
+"protein": 0.99,
+"fat": 0.3,
+"carb": 6.03,
+"fiber": 2.1,
+"sugar": 4.2,
+"sodium": 4.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11821",
+"desc": "Peppers, sweet, red, raw"
+},
+"tbsp_g": 9.3,
+"piece_g": 160
+},
+{
+"id": "chili_green",
+"ko": "풋고추·청양고추",
+"aliases": [
+"고추",
+"청양고추",
+"풋고추"
+],
+"cat": "채소",
+"per100": {
+"kcal": 40.0,
+"protein": 2.0,
+"fat": 0.2,
+"carb": 9.46,
+"fiber": 1.5,
+"sugar": 5.1,
+"sodium": 7.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11670",
+"desc": "Peppers, hot chili, green, raw"
+},
+"piece_g": 10
+},
+{
+"id": "chili_red",
+"ko": "홍고추",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 40.0,
+"protein": 1.87,
+"fat": 0.44,
+"carb": 8.81,
+"fiber": 1.5,
+"sugar": 5.3,
+"sodium": 9.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11819",
+"desc": "Peppers, hot chili, red, raw"
+},
+"piece_g": 10
+},
+{
+"id": "eggplant",
+"ko": "가지",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 25.0,
+"protein": 0.98,
+"fat": 0.18,
+"carb": 5.88,
+"fiber": 3.0,
+"sugar": 3.53,
+"sodium": 2.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11209",
+"desc": "Eggplant, raw"
+},
+"piece_g": 150
+},
+{
+"id": "bean_sprout",
+"ko": "숙주",
+"aliases": [
+"숙주나물"
+],
+"cat": "채소",
+"per100": {
+"kcal": 30.0,
+"protein": 3.04,
+"fat": 0.18,
+"carb": 5.94,
+"fiber": 1.8,
+"sugar": 4.13,
+"sodium": 6.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11043",
+"desc": "Mung beans, mature seeds, sprouted, raw"
+}
+},
+{
+"id": "soy_sprout",
+"ko": "콩나물",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 122.0,
+"protein": 13.09,
+"fat": 6.7,
+"carb": 9.57,
+"fiber": 1.1,
+"sugar": null,
+"sodium": 14.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11452",
+"desc": "Soybeans, mature seeds, sprouted, raw"
+}
+},
+{
+"id": "lotus",
+"ko": "연근",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 74.0,
+"protein": 2.6,
+"fat": 0.1,
+"carb": 17.23,
+"fiber": 4.9,
+"sugar": null,
+"sodium": 40.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11254",
+"desc": "Lotus root, raw"
+}
+},
+{
+"id": "burdock",
+"ko": "우엉",
+"aliases": [],
+"cat": "채소",
+"per100": {
+"kcal": 72.0,
+"protein": 1.53,
+"fat": 0.15,
+"carb": 17.34,
+"fiber": 3.3,
+"sugar": 2.9,
+"sodium": 5.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11104",
+"desc": "Burdock root, raw"
+}
+},
+{
+"id": "shiitake",
+"ko": "표고버섯",
+"aliases": [
+"표고"
+],
+"cat": "버섯",
+"per100": {
+"kcal": 34.0,
+"protein": 2.24,
+"fat": 0.49,
+"carb": 6.79,
+"fiber": 2.5,
+"sugar": 2.38,
+"sodium": 9.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11238",
+"desc": "Mushrooms, shiitake, raw"
+}
+},
+{
+"id": "white_mush",
+"ko": "양송이버섯",
+"aliases": [
+"양송이"
+],
+"cat": "버섯",
+"per100": {
+"kcal": 22.0,
+"protein": 3.09,
+"fat": 0.34,
+"carb": 3.26,
+"fiber": 1.0,
+"sugar": 1.98,
+"sodium": 5.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11260",
+"desc": "Mushrooms, white, raw"
+}
+},
+{
+"id": "enoki",
+"ko": "팽이버섯",
+"aliases": [
+"팽이"
+],
+"cat": "버섯",
+"per100": {
+"kcal": 37.0,
+"protein": 2.66,
+"fat": 0.29,
+"carb": 7.81,
+"fiber": 2.7,
+"sugar": 0.22,
+"sodium": 3.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11950",
+"desc": "Mushrooms, enoki, raw"
+}
+},
+{
+"id": "oyster_mush",
+"ko": "느타리버섯",
+"aliases": [
+"느타리"
+],
+"cat": "버섯",
+"per100": {
+"kcal": 33.0,
+"protein": 3.31,
+"fat": 0.41,
+"carb": 6.09,
+"fiber": 2.3,
+"sugar": 1.11,
+"sodium": 18.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11987",
+"desc": "Mushrooms, oyster, raw"
+}
+},
+{
+"id": "avocado",
+"ko": "아보카도",
+"aliases": [],
+"cat": "과일",
+"per100": {
+"kcal": 160.0,
+"protein": 2.0,
+"fat": 14.66,
+"carb": 8.53,
+"fiber": 6.7,
+"sugar": 0.66,
+"sodium": 7.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09037",
+"desc": "Avocados, raw, all commercial varieties"
+}
+},
+{
+"id": "banana",
+"ko": "바나나",
+"aliases": [],
+"cat": "과일",
+"per100": {
+"kcal": 89.0,
+"protein": 1.09,
+"fat": 0.33,
+"carb": 22.84,
+"fiber": 2.6,
+"sugar": 12.23,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09040",
+"desc": "Bananas, raw"
+},
+"piece_g": 120
+},
+{
+"id": "apple",
+"ko": "사과",
+"aliases": [],
+"cat": "과일",
+"per100": {
+"kcal": 52.0,
+"protein": 0.26,
+"fat": 0.17,
+"carb": 13.81,
+"fiber": 2.4,
+"sugar": 10.39,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09003",
+"desc": "Apples, raw, with skin"
+},
+"piece_g": 200
+},
+{
+"id": "pear",
+"ko": "배",
+"aliases": [],
+"cat": "과일",
+"per100": {
+"kcal": 42.0,
+"protein": 0.5,
+"fat": 0.23,
+"carb": 10.65,
+"fiber": 3.6,
+"sugar": 7.05,
+"sodium": 0.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09340",
+"desc": "Pears, asian, raw"
+},
+"piece_g": 300
+},
+{
+"id": "orange",
+"ko": "오렌지",
+"aliases": [
+"귤"
+],
+"cat": "과일",
+"per100": {
+"kcal": 47.0,
+"protein": 0.94,
+"fat": 0.12,
+"carb": 11.75,
+"fiber": 2.4,
+"sugar": 9.35,
+"sodium": 0.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09200",
+"desc": "Oranges, raw, all commercial varieties"
+},
+"piece_g": 130
+},
+{
+"id": "strawberry",
+"ko": "딸기",
+"aliases": [],
+"cat": "과일",
+"per100": {
+"kcal": 32.0,
+"protein": 0.67,
+"fat": 0.3,
+"carb": 7.68,
+"fiber": 2.0,
+"sugar": 4.89,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09316",
+"desc": "Strawberries, raw"
+}
+},
+{
+"id": "lemon_juice",
+"ko": "레몬즙",
+"aliases": [
+"레몬"
+],
+"cat": "과일",
+"per100": {
+"kcal": 22.0,
+"protein": 0.35,
+"fat": 0.24,
+"carb": 6.9,
+"fiber": 0.3,
+"sugar": 2.52,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "09152",
+"desc": "Lemon juice, raw"
+}
+},
+{
+"id": "sesame",
+"ko": "참깨",
+"aliases": [
+"통깨",
+"깨"
+],
+"cat": "견과·씨앗",
+"per100": {
+"kcal": 573.0,
+"protein": 17.73,
+"fat": 49.67,
+"carb": 23.45,
+"fiber": 11.8,
+"sugar": 0.3,
+"sodium": 11.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "12023",
+"desc": "Seeds, sesame seeds, whole, dried"
+},
+"tbsp_g": 9.0
+},
+{
+"id": "almond",
+"ko": "아몬드",
+"aliases": [],
+"cat": "견과·씨앗",
+"per100": {
+"kcal": 579.0,
+"protein": 21.15,
+"fat": 49.93,
+"carb": 21.55,
+"fiber": 12.5,
+"sugar": 4.2,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "12061",
+"desc": "Nuts, almonds"
+}
+},
+{
+"id": "walnut",
+"ko": "호두",
+"aliases": [],
+"cat": "견과·씨앗",
+"per100": {
+"kcal": 654.0,
+"protein": 15.23,
+"fat": 65.21,
+"carb": 13.71,
+"fiber": 6.7,
+"sugar": 2.61,
+"sodium": 2.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "12155",
+"desc": "Nuts, walnuts, english"
+}
+},
+{
+"id": "peanut_butter",
+"ko": "땅콩버터",
+"aliases": [],
+"cat": "견과·씨앗",
+"per100": {
+"kcal": 588.0,
+"protein": 25.09,
+"fat": 50.39,
+"carb": 19.56,
+"fiber": 6.0,
+"sugar": 9.22,
+"sodium": 459.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16098",
+"desc": "Peanut butter, smooth style, with salt"
+},
+"tbsp_g": 16.0
+},
+{
+"id": "soy_sauce",
+"ko": "간장",
+"aliases": [
+"진간장",
+"양조간장",
+"국간장"
+],
+"cat": "양념",
+"per100": {
+"kcal": 53.0,
+"protein": 8.14,
+"fat": 0.57,
+"carb": 4.93,
+"fiber": 0.8,
+"sugar": 0.4,
+"sodium": 5493.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16123",
+"desc": "Soy sauce made from soy and wheat (shoyu)"
+},
+"tbsp_g": 16.0
+},
+{
+"id": "miso",
+"ko": "된장",
+"aliases": [
+"미소"
+],
+"cat": "양념",
+"per100": {
+"kcal": 199.0,
+"protein": 11.69,
+"fat": 6.01,
+"carb": 26.47,
+"fiber": 5.4,
+"sugar": 6.2,
+"sodium": 3728.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "16112",
+"desc": "Miso"
+},
+"tbsp_g": 17.0
+},
+{
+"id": "sugar",
+"ko": "설탕",
+"aliases": [
+"백설탕"
+],
+"cat": "양념",
+"per100": {
+"kcal": 387.0,
+"protein": 0.0,
+"fat": 0.0,
+"carb": 99.98,
+"fiber": 0.0,
+"sugar": 99.8,
+"sodium": 1.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "19335",
+"desc": "Sugars, granulated"
+}
+},
+{
+"id": "honey",
+"ko": "꿀",
+"aliases": [],
+"cat": "양념",
+"per100": {
+"kcal": 304.0,
+"protein": 0.3,
+"fat": 0.0,
+"carb": 82.4,
+"fiber": 0.2,
+"sugar": 82.12,
+"sodium": 4.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "19296",
+"desc": "Honey"
+},
+"tbsp_g": 21.0
+},
+{
+"id": "salt",
+"ko": "소금",
+"aliases": [
+"천일염",
+"꽃소금"
+],
+"cat": "양념",
+"per100": {
+"kcal": 0.0,
+"protein": 0.0,
+"fat": 0.0,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 38758.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "02047",
+"desc": "Salt, table"
+},
+"tbsp_g": 18.0
+},
+{
+"id": "chili_powder",
+"ko": "고춧가루",
+"aliases": [],
+"cat": "양념",
+"per100": {
+"kcal": 318.0,
+"protein": 12.01,
+"fat": 17.27,
+"carb": 56.63,
+"fiber": 27.2,
+"sugar": 10.34,
+"sodium": 30.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "02031",
+"desc": "Spices, pepper, red or cayenne"
+},
+"tbsp_g": 5.3
+},
+{
+"id": "vinegar",
+"ko": "식초",
+"aliases": [],
+"cat": "양념",
+"per100": {
+"kcal": 18.0,
+"protein": 0.0,
+"fat": 0.0,
+"carb": 0.04,
+"fiber": 0.0,
+"sugar": 0.04,
+"sodium": 2.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "02053",
+"desc": "Vinegar, distilled"
+},
+"tbsp_g": 14.9
+},
+{
+"id": "ketchup",
+"ko": "케첩",
+"aliases": [
+"케찹"
+],
+"cat": "양념",
+"per100": {
+"kcal": 112.0,
+"protein": 1.25,
+"fat": 0.18,
+"carb": 26.23,
+"fiber": 0.3,
+"sugar": 21.71,
+"sodium": 907.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "11935",
+"desc": "Catsup"
+},
+"tbsp_g": 17.0
+},
+{
+"id": "mayo",
+"ko": "마요네즈",
+"aliases": [
+"마요"
+],
+"cat": "양념",
+"per100": {
+"kcal": 680.0,
+"protein": 0.96,
+"fat": 74.85,
+"carb": 0.57,
+"fiber": 0.0,
+"sugar": 0.57,
+"sodium": 635.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "04025",
+"desc": "Salad dressing, mayonnaise, regular"
+},
+"tbsp_g": 13.8
+},
+{
+"id": "oyster_sauce",
+"ko": "굴소스",
+"aliases": [],
+"cat": "양념",
+"per100": {
+"kcal": 51.0,
+"protein": 1.35,
+"fat": 0.25,
+"carb": 10.92,
+"fiber": 0.3,
+"sugar": 0.0,
+"sodium": 2733.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "06176",
+"desc": "Sauce, oyster, ready-to-serve"
+},
+"tbsp_g": 18.0
+},
+{
+"id": "fish_sauce",
+"ko": "액젓(피시소스)",
+"aliases": [
+"멸치액젓",
+"까나리액젓",
+"피시소스"
+],
+"cat": "양념",
+"per100": {
+"kcal": 35.0,
+"protein": 5.06,
+"fat": 0.01,
+"carb": 3.64,
+"fiber": 0.0,
+"sugar": 3.64,
+"sodium": 7851.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "06179",
+"desc": "Sauce, fish, ready-to-serve"
+},
+"tbsp_g": 18.0
+},
+{
+"id": "sesame_oil",
+"ko": "참기름",
+"aliases": [
+"들기름"
+],
+"cat": "기름",
+"per100": {
+"kcal": 884.0,
+"protein": 0.0,
+"fat": 100.0,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 0.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "04058",
+"desc": "Oil, sesame, salad or cooking"
+},
+"tbsp_g": 13.6
+},
+{
+"id": "canola_oil",
+"ko": "식용유",
+"aliases": [
+"카놀라유",
+"포도씨유",
+"콩기름"
+],
+"cat": "기름",
+"per100": {
+"kcal": 884.0,
+"protein": 0.0,
+"fat": 100.0,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 0.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "04582",
+"desc": "Oil, canola"
+},
+"tbsp_g": 14.0
+},
+{
+"id": "olive_oil",
+"ko": "올리브유",
+"aliases": [],
+"cat": "기름",
+"per100": {
+"kcal": 884.0,
+"protein": 0.0,
+"fat": 100.0,
+"carb": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"sodium": 2.0
+},
+"src": {
+"db": "USDA National Nutrient Database SR26 (public domain)",
+"ndb": "04053",
+"desc": "Oil, olive, salad or cooking"
+},
+"tbsp_g": 13.5
+}
+]
+}
