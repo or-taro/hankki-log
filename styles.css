@@ -123,3 +123,14 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
   .ing td:first-child{grid-column:1/-1}
   .steps button{font-size:.85rem;padding:0 .2rem}
 }
+
+.mealrow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;margin:-.2rem 0 .9rem}
+.mini{display:inline-flex;align-items:center;gap:.35rem;font-size:.9rem;color:var(--muted);white-space:nowrap}
+.mini input{width:auto;min-width:0}
+#mealDate{width:9.5rem}#eaten{width:4.6rem}#goalKcal{width:6.5rem}#goalProtein{width:5rem}
+.goalbar{margin-top:.5rem;font-size:.85rem;color:var(--sage-d);font-weight:700}
+.badge.diet{background:var(--sage-l);color:var(--sage-d);margin-left:.3rem}
+.badge.meal{background:var(--sage);color:#fff}
+.day{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.3rem .8rem;align-items:baseline;padding:.7rem .9rem;border-radius:12px;background:var(--sage-l);margin-top:.4rem}
+.day b{font-size:1.02rem}.day span{font-size:.88rem;color:var(--sage-d)}
+.lib li.day{flex-direction:row;background:var(--sage-l);border:0;overflow:visible}

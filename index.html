@@ -36,6 +36,13 @@
     <span id="exampleBadge" class="badge example" hidden>예시</span>
     <span id="savedState" class="muted small"></span>
   </div>
+  <div class="mealrow">
+    <label class="mini">날짜 <input id="mealDate" type="date"></label>
+    <div class="chips" id="mealChips" role="group" aria-label="끼니">
+      <button type="button" data-meal="아침">아침</button><button type="button" data-meal="점심">점심</button><button type="button" data-meal="저녁">저녁</button><button type="button" data-meal="간식">간식</button>
+    </div>
+    <label class="mini">먹은 양 <input id="eaten" type="number" min="0.25" max="10" step="0.25" value="1" inputmode="decimal"> 인분</label>
+  </div>
   <ol class="steps" aria-label="단계">
     <li><button type="button" data-step="1" class="on">1. 사진 올리기</button></li>
     <li><button type="button" data-step="2">2. 정보 확인</button></li>
@@ -102,7 +109,8 @@
         <div class="field">
           <span class="lab">말투</span>
           <div class="chips" id="toneChips">
-            <button type="button" data-tone="plain" class="on">담백하게</button>
+            <button type="button" data-tone="diet" class="on">식단 기록</button>
+            <button type="button" data-tone="plain">담백하게</button>
             <button type="button" data-tone="friendly">친근하게</button>
             <button type="button" data-tone="info">정보 위주</button>
           </div>
@@ -152,6 +160,16 @@
 <section id="view-settings" class="view" hidden>
   <h2>설정·백업</h2>
   <p class="note">사진은 이 기기 밖으로 보내지 않아요. 사진과 글은 이 브라우저 안에만 저장돼요.</p>
+  <div class="card">
+    <h3>내 하루 목표</h3>
+    <p class="small">직접 정한 목표를 넣으면 끼니와 하루 합계가 목표의 몇 %인지 보여 줘요. 비워 두면 표시하지 않아요. 앱이 목표를 추천하지는 않아요.</p>
+    <div class="row wrap">
+      <label class="mini">열량 <input id="goalKcal" type="number" min="0" max="6000" step="10" inputmode="numeric" placeholder="예: 1500"> kcal</label>
+      <label class="mini">단백질 <input id="goalProtein" type="number" min="0" max="400" step="1" inputmode="numeric" placeholder="예: 90"> g</label>
+      <button type="button" id="saveGoals" class="btn small">저장</button>
+    </div>
+    <div id="goalMsg" class="msg small" role="status"></div>
+  </div>
   <div class="card">
     <h3>백업</h3>
     <p>사진을 포함한 모든 콘텐츠를 파일 하나로 내보내요. 다른 기기에서 ‘가져오기’로 옮길 수 있어요.</p>

@@ -1,4 +1,4 @@
-const CACHE = 'hankki-log-v0.1.0';
+const CACHE = 'hankki-log-v0.2.0';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png',
   'data/ingredients.json', 'data/recipes.json', 'data/tips.json'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))); });

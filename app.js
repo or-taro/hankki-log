@@ -1,6 +1,6 @@
 'use strict';
 /* 한끼로그 1단계 — 서버 없음. 데이터는 이 브라우저의 IndexedDB에만 저장한다. */
-const VERSION = '0.1.0';
+const VERSION = '0.2.0';
 const MAX_PHOTOS = 10, MAX_BYTES = 30 * 1024 * 1024, LONG_EDGE = 1600, MAX_CAPTION = 2200, MAX_TAGS = 5;
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const errors = [];
@@ -61,7 +61,11 @@ function matchIng(name) {
 
 /* ---------- 현재 콘텐츠 상태 ---------- */
 const UNITS = ['g', '개', '큰술', '작은술', 'ml', '컵'];
-function blankEntry() { return { id: uid(), title: '', photos: [], cover: 0, servings: 1, ingredients: [{ name: '', amount: '', unit: 'g' }], steps: '', recipeDraft: false, example: false, tone: 'plain', inc: { ing: true, steps: true, nutri: true, tip: false }, tags: [], tagPool: [], post: '', created: Date.now(), updated: Date.now() }; }
+const MEALS = ['아침', '점심', '저녁', '간식'];
+const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+function guessMeal() { const h = new Date().getHours(); return h < 10 ? '아침' : h < 15 ? '점심' : h < 17 ? '간식' : h < 22 ? '저녁' : '간식'; }
+let GOALS = { kcal: null, protein: null };
+function blankEntry() { return { id: uid(), date: today(), meal: guessMeal(), eaten: 1, title: '', photos: [], cover: 0, servings: 1, ingredients: [{ name: '', amount: '', unit: 'g' }], steps: '', recipeDraft: false, example: false, tone: 'diet', inc: { ing: true, steps: true, nutri: true, tip: false }, tags: [], tagPool: [], post: '', created: Date.now(), updated: Date.now() }; }
 let cur = blankEntry(), photoURLs = {}, dirty = false;
 
 function grams(row, ing) {
@@ -76,10 +80,10 @@ function grams(row, ing) {
   }
   return { g: null, why: '단위를 확인해 주세요' };
 }
-function calc() {
+function calc(e = cur) {
   const keys = ['kcal', 'carb', 'protein', 'fat', 'sugar', 'fiber', 'sodium'];
   const tot = Object.fromEntries(keys.map(k => [k, 0])); const rows = []; let missing = 0, est = false, used = 0;
-  for (const r of cur.ingredients) {
+  for (const r of e.ingredients) {
     if (!r.name.trim() && !r.amount) { rows.push({ st: '' }); continue; }
     const ing = matchIng(r.name);
     if (!ing) { missing++; rows.push({ st: '계산에서 제외됨 · 영양 자료에 없는 재료', miss: true }); continue; }
@@ -89,9 +93,11 @@ function calc() {
     for (const k of keys) if (ing.per100[k] != null) tot[k] += ing.per100[k] * g.g / 100;
     rows.push({ st: `${ing.ko} · 약 ${fmt(g.g)}g${g.est ? ' (단위 환산 추정)' : ''}`, ing, g: g.g });
   }
-  const sv = Math.max(1, parseInt(cur.servings) || 1);
+  const sv = Math.max(1, parseInt(e.servings) || 1);
   const per = Object.fromEntries(keys.map(k => [k, tot[k] / sv]));
-  return { tot, per, rows, missing, est, used, sv };
+  const eaten = Math.max(0, parseFloat(e.eaten) || 1);
+  const ate = Object.fromEntries(keys.map(k => [k, per[k] * eaten]));
+  return { tot, per, ate, eaten, rows, missing, est, used, sv };
 }
 
 /* ---------- 화면: 단계 ---------- */
@@ -200,27 +206,34 @@ function renderNutri() {
   const c = calc(); const trs = $$('#ingBody tr');
   c.rows.forEach((r, i) => { const st = trs[i] && trs[i].querySelector('.st'); if (st) { st.textContent = r.st; st.className = 'st' + (r.miss ? ' miss' : ''); } });
   const has = c.used > 0;
-  $('#nutri').innerHTML = `<div class="head"><strong>예상 영양 정보 · 1인분${c.sv > 1 ? ` (총 ${c.sv}인분)` : ''}</strong>${c.missing ? `<span class="miss">계산에서 제외된 재료 ${c.missing}개</span>` : ''}</div>
+  $('#nutri').innerHTML = `<div class="head"><strong>예상 영양 정보 · 먹은 양 ${fmt(c.eaten, 2)}인분${c.sv > 1 ? ` (레시피 ${c.sv}인분 중)` : ''}</strong>${c.missing ? `<span class="miss">계산에서 제외된 재료 ${c.missing}개</span>` : ''}</div>
    ${has ? `<div class="grid">
-    <div><div class="k">열량</div><div class="v">약 ${fmt(c.per.kcal)} kcal</div></div>
-    <div><div class="k">탄수화물</div><div class="v">${fmt(c.per.carb, 1)} g</div></div>
-    <div><div class="k">단백질</div><div class="v">${fmt(c.per.protein, 1)} g</div></div>
-    <div><div class="k">지방</div><div class="v">${fmt(c.per.fat, 1)} g</div></div>
-    <div><div class="k">나트륨</div><div class="v">${fmt(c.per.sodium)} mg</div></div>
-    <div><div class="k">당류</div><div class="v">${fmt(c.per.sugar, 1)} g</div></div></div>
+    <div><div class="k">열량</div><div class="v">약 ${fmt(c.ate.kcal)} kcal</div></div>
+    <div><div class="k">탄수화물</div><div class="v">${fmt(c.ate.carb, 1)} g</div></div>
+    <div><div class="k">단백질</div><div class="v">${fmt(c.ate.protein, 1)} g</div></div>
+    <div><div class="k">지방</div><div class="v">${fmt(c.ate.fat, 1)} g</div></div>
+    <div><div class="k">나트륨</div><div class="v">${fmt(c.ate.sodium)} mg</div></div>
+    <div><div class="k">당류</div><div class="v">${fmt(c.ate.sugar, 1)} g</div></div></div>
+    ${goalLine(c.ate)}
     <p class="small muted" style="margin:.4rem 0 0">${c.sv > 1 ? `전체 ${c.sv}인분 합계 약 ${fmt(c.tot.kcal)} kcal` : ''}${c.est ? ' · 개·큰술 등은 무게로 환산한 추정이에요' : ''}</p>` : '<p class="small muted" style="margin:0">재료와 양을 입력하면 계산돼요.</p>'}`;
   const seen = new Set(); $('#srcList').innerHTML = c.rows.filter(r => r.ing && !seen.has(r.ing.id) && seen.add(r.ing.id)).map(r =>
     `<p><b>${esc(r.ing.ko)}</b> — ${esc(r.ing.src.desc)} (USDA SR26 NDB ${esc(r.ing.src.ndb)}, 100g당 ${fmt(r.ing.per100.kcal)} kcal)</p>`).join('') || '<p>계산에 쓰인 재료가 아직 없어요.</p>';
   return c;
 }
+function goalLine(v) {
+  const p = [];
+  if (GOALS.kcal) p.push(`열량 ${fmt(v.kcal / GOALS.kcal * 100)}%`);
+  if (GOALS.protein) p.push(`단백질 ${fmt(v.protein / GOALS.protein * 100)}%`);
+  return p.length ? `<div class="goalbar">내 하루 목표의 ${p.join(' · ')}</div>` : '';
+}
 function findRecipes() {
   const k = norm(cur.title); const box = $('#recipeResults'); box.innerHTML = '';
   if (!k) { box.innerHTML = '<p class="msg err">먼저 메뉴 이름을 입력해 주세요.</p>'; return; }
   const score = r => { let best = 0; for (const x of r._keys) { if (x === k) best = Math.max(best, 100); else if (x.includes(k) || k.includes(x)) best = Math.max(best, 60 + Math.min(x.length, k.length)); else { let common = 0; for (const ch of new Set(k)) if (x.includes(ch)) common++; best = Math.max(best, common / Math.max(new Set(k).size, 1) * 40); } } return best; };
-  const list = RECIPES.map(r => [score(r), r]).filter(a => a[0] >= 30).sort((a, b) => b[0] - a[0]).slice(0, 5);
+  const list = RECIPES.map(r => [score(r) + (r.diet ? 0.5 : 0), r]).filter(a => a[0] >= 30).sort((a, b) => b[0] - a[0]).slice(0, 5);
   if (!list.length) { box.innerHTML = '<p class="msg">맞는 참고 레시피가 없어요. 재료를 직접 입력해 주세요.</p>'; return; }
   list.forEach(([, r]) => {
-    const b = document.createElement('button'); b.type = 'button'; b.innerHTML = `<b>${esc(r.name)}</b> <span class="muted small">${r.servings}인분 · 재료 ${r.ingredients.length}개</span>`;
+    const b = document.createElement('button'); b.type = 'button'; b.innerHTML = `<b>${esc(r.name)}</b>${r.diet ? '<span class="badge diet">식단</span>' : ''} <span class="muted small">${r.servings}인분 · 재료 ${r.ingredients.length}개</span>`;
     b.addEventListener('click', () => applyRecipe(r)); box.appendChild(b);
   });
 }
@@ -241,12 +254,12 @@ function tagPool() {
   if (t) pool.push('#' + cur.title.replace(/\s/g, ''));
   const c = calc(); const main = c.rows.filter(r => r.ing && r.g).sort((a, b) => b.g - a.g).find(r => !['곡류', '양념', '기름'].includes(r.ing.cat));
   if (main) pool.push('#' + main.ing.ko.replace(/\(.*?\)/g, '').split('·')[0].replace(/\s/g, '') + '요리');
-  pool.push('#집밥', '#오늘의한끼', '#홈쿡', '#레시피', '#식단기록', '#집밥기록', '#한그릇요리', '#요리기록');
-  return [...new Set(pool)];
+  pool.push('#집밥', '#오늘의한끼', '#홈쿡', '#레시피', '#집밥기록', '#요리기록');
+  return [...new Set(['#다이어트식단', '#식단일기', ...pool.slice(0, 2), '#다이어트기록', `#${cur.meal}식단`, '#식단기록', ...pool.slice(2)])];
 }
 function renderTags() {
   const pool = [...new Set([...tagPool(), ...cur.tags, ...cur.tagPool])];
-  if (!cur.tags.length && !cur._tagsTouched) cur.tags = pool.slice(0, 3);
+  if (!cur._tagsTouched) cur.tags = pool.slice(0, 3);
   $('#tagChips').innerHTML = pool.map(t => `<button type="button" class="${cur.tags.includes(t) ? 'on' : ''}" aria-pressed="${cur.tags.includes(t)}">${esc(t)}</button>`).join('');
   $('#tagCount').textContent = `${cur.tags.length} / ${MAX_TAGS}개 선택`;
 }
@@ -263,7 +276,8 @@ function pickTip() {
 }
 function buildPost() {
   const c = calc(); const name = cur.title.trim() || '오늘의 한 끼'; const L = [];
-  const open = { plain: `오늘의 한 끼, ${name}.`, friendly: `오늘은 ${name} 만들어 먹었어요!`, info: `[${name}] ${c.sv}인분 기록` }[cur.tone];
+  const d = cur.date ? new Date(cur.date + 'T00:00') : new Date(); const md = `${d.getMonth() + 1}월 ${d.getDate()}일`;
+  const open = { diet: `${md} ${cur.meal} 식단 기록 · ${name}`, plain: `오늘의 한 끼, ${name}.`, friendly: `오늘은 ${name} 만들어 먹었어요!`, info: `[${name}] ${c.sv}인분 기록` }[cur.tone];
   L.push(open);
   if (cur.tone === 'friendly') L.push('집에 있는 재료로 편하게 만들었어요.');
   const ings = cur.ingredients.filter(r => r.name.trim());
@@ -271,8 +285,8 @@ function buildPost() {
   const steps = cur.steps.split('\n').map(s => s.trim()).filter(Boolean);
   if (cur.inc.steps && steps.length) { L.push('', '만드는 법'); steps.forEach((s, i) => L.push(`${i + 1}. ${s.replace(/^\d+[.)]\s*/, '')}`)); }
   if (cur.inc.nutri && c.used) {
-    L.push('', `예상 영양 정보 (1인분, 입력한 재료로 계산한 추정값)`);
-    L.push(`열량 약 ${fmt(c.per.kcal)}kcal · 탄수화물 ${fmt(c.per.carb)}g · 단백질 ${fmt(c.per.protein)}g · 지방 ${fmt(c.per.fat)}g`);
+    L.push('', `예상 영양 정보 (먹은 양 ${fmt(c.eaten, 2)}인분, 입력한 재료로 계산한 추정값)`);
+    L.push(`열량 약 ${fmt(c.ate.kcal)}kcal · 탄수화물 ${fmt(c.ate.carb)}g · 단백질 ${fmt(c.ate.protein)}g · 지방 ${fmt(c.ate.fat)}g`);
     if (c.missing) L.push(`※ 재료 ${c.missing}개는 계산에서 빠졌어요.`);
   }
   if (cur.inc.tip) { const t = pickTip(); if (t) L.push('', t); }
@@ -322,22 +336,32 @@ async function saveEntry(quiet) {
   catch (e) { logErr('save', e); toast('저장하지 못했어요. 저장 공간을 확인해 주세요.'); return false; }
 }
 async function renderLibrary() {
-  const list = (await DB.all('entries')).sort((a, b) => b.updated - a.updated);
+  const mo = m => { const i = MEALS.indexOf(m); return i < 0 ? 9 : i; };
+  const list = (await DB.all('entries')).sort((a, b) => (b.date || '').localeCompare(a.date || '') || mo(a.meal) - mo(b.meal) || a.created - b.created);
   const ul = $('#libList'); ul.innerHTML = ''; $('#libEmpty').hidden = list.length > 0;
-  for (const e of list) {
+  const days = {}; for (const e of list) (days[e.date || '날짜 없음'] = days[e.date || '날짜 없음'] || []).push(e);
+  for (const [day, es] of Object.entries(days)) {
+    const sum = { kcal: 0, carb: 0, protein: 0, fat: 0 }; let miss = 0;
+    for (const e of es) { const c = calc(e); for (const k in sum) sum[k] += c.ate[k]; miss += c.missing; }
+    const dd = day.includes('-') ? new Date(day + 'T00:00').toLocaleDateString('ko-KR', { month: 'long', day: 'numeric', weekday: 'short' }) : day;
+    const h = document.createElement('li'); h.className = 'day';
+    h.innerHTML = `<b>${esc(dd)} · ${es.length}끼</b><span>하루 합계 약 ${fmt(sum.kcal)}kcal · 탄 ${fmt(sum.carb)}g · 단 ${fmt(sum.protein)}g · 지 ${fmt(sum.fat)}g${GOALS.kcal ? ` · 목표 열량의 ${fmt(sum.kcal / GOALS.kcal * 100)}%` : ''}${GOALS.protein ? ` · 목표 단백질의 ${fmt(sum.protein / GOALS.protein * 100)}%` : ''}${miss ? ` · 제외된 재료 ${miss}개` : ''}</span>`;
+    ul.appendChild(h);
+  for (const e of es) {
     const li = document.createElement('li'); const pid = e.photos[e.cover] || e.photos[0];
     const img = pid ? `<img alt="" src="${await photoURL(pid)}">` : '<div class="noimg">사진 없음</div>';
-    li.innerHTML = `${img}<div class="body"><div class="name">${esc(e.title || '이름 없음')}</div><div class="muted small">${new Date(e.updated).toLocaleString('ko-KR', { dateStyle: 'medium', timeStyle: 'short' })} · 사진 ${e.photos.length}장</div></div>
+    li.innerHTML = `${img}<div class="body"><div class="name">${e.meal ? `<span class="badge meal">${esc(e.meal)}</span> ` : ''}${esc(e.title || '이름 없음')}</div><div class="muted small">약 ${fmt(calc(e).ate.kcal)}kcal · 사진 ${e.photos.length}장</div></div>
       <div class="ctl"><button type="button" data-a="open">열기</button><button type="button" data-a="dup">복제</button><button type="button" data-a="del" class="d">삭제</button></div>`;
     li.querySelector('.ctl').addEventListener('click', ev => libAction(ev.target.dataset.a, e));
     ul.appendChild(li);
+  }
   }
   await renderLibInfo();
 }
 async function libAction(a, e) {
   if (a === 'open') { if (dirty && !confirm('지금 작업 중인 내용이 저장되지 않았어요. 열까요?')) return; cur = e; dirty = false; fillForm(); setView('make'); setStep(3); $('#savedState').textContent = '저장됨'; }
   if (a === 'dup') {
-    const n = JSON.parse(JSON.stringify(e)); n.id = uid(); n.title = (e.title || '이름 없음') + ' (복사본)'; n.created = n.updated = Date.now(); n.photos = [];
+    const n = JSON.parse(JSON.stringify(e)); n.id = uid(); n.title = (e.title || '이름 없음') + ' (복사본)'; n.date = today(); n.meal = guessMeal(); n.created = n.updated = Date.now(); n.photos = [];
     for (const pid of e.photos) { const p = await DB.get('photos', pid); if (p) { const id = uid(); await DB.put('photos', { ...p, id }); n.photos.push(id); } }
     await DB.put('entries', n); toast('복제했어요.'); renderLibrary();
   }
@@ -372,7 +396,7 @@ async function exportBackup() {
   try {
     const entries = await DB.all('entries'); const need = new Set(entries.flatMap(e => e.photos)); const photos = [];
     for (const id of need) { const p = await DB.get('photos', id); if (p) photos.push({ id, w: p.w, h: p.h, type: p.blob.type, data: await b64(p.blob) }); }
-    const json = JSON.stringify({ app: 'hankki-log', format: 1, version: VERSION, exported: new Date().toISOString(), entries, photos });
+    const json = JSON.stringify({ app: 'hankki-log', format: 1, version: VERSION, exported: new Date().toISOString(), goals: GOALS, entries, photos });
     const blob = new Blob([json], { type: 'application/json' }); const d = new Date();
     const name = `hankki-log-backup-${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}.json`;
     const file = new File([blob], name, { type: 'application/json' });
@@ -392,13 +416,14 @@ async function importBackup(file) {
     msg(el, '가져오는 중…');
     for (const p of data.photos || []) { const bin = Uint8Array.from(atob(p.data), c => c.charCodeAt(0)); await DB.put('photos', { id: p.id, w: p.w, h: p.h, blob: new Blob([bin], { type: p.type || 'image/jpeg' }) }); }
     for (const e of data.entries) await DB.put('entries', e);
+    if (data.goals && (data.goals.kcal || data.goals.protein) && !(GOALS.kcal || GOALS.protein)) { GOALS = data.goals; await DB.meta('goals', GOALS); }
     msg(el, `콘텐츠 ${data.entries.length}개, 사진 ${(data.photos || []).length}장을 가져왔어요.`, 'ok'); renderSettings();
   } catch (e) { logErr('import', e); msg(el, '이 파일은 가져올 수 없어요. 한끼로그에서 내보낸 백업 파일인지 확인해 주세요.', 'err'); }
 }
 
 /* ---------- 설정 ---------- */
 async function renderSettings() {
-  $('#ver').textContent = VERSION;
+  $('#ver').textContent = VERSION; $('#goalKcal').value = GOALS.kcal || ''; $('#goalProtein').value = GOALS.protein || '';
   const s = await backupSize(); $('#backupSize').textContent = `예상 백업 파일 크기 약 ${mb(s.bytes)} (콘텐츠 ${s.n}개, 사진 ${s.p}장)`;
   let t = '';
   try { if (navigator.storage && navigator.storage.estimate) { const e = await navigator.storage.estimate(); t += `사용 ${mb(e.usage || 0)}${e.quota ? ` / 사용 가능 약 ${mb(e.quota)}` : ''}. `; } } catch (e) { }
@@ -415,6 +440,8 @@ async function diagText() {
 
 /* ---------- 폼 채우기 ---------- */
 function fillForm() {
+  cur.date = cur.date || today(); cur.meal = cur.meal || guessMeal(); cur.eaten = cur.eaten || 1;
+  $('#mealDate').value = cur.date; $('#eaten').value = cur.eaten; $$('#mealChips button').forEach(b => b.classList.toggle('on', b.dataset.meal === cur.meal));
   $('#title').value = cur.title; $('#servings').value = cur.servings; $('#stepsText').value = cur.steps; $('#postText').value = cur.post;
   $('#exampleBadge').hidden = !cur.example; $('#draftBadge').hidden = !cur.recipeDraft;
   $$('#toneChips button').forEach(b => b.classList.toggle('on', b.dataset.tone === cur.tone));
@@ -424,7 +451,7 @@ function fillForm() {
 }
 function loadExample() {
   if (dirty && !confirm('지금 작업 중인 내용이 저장되지 않았어요. 예시를 열까요?')) return;
-  const r = RECIPES.find(x => x.name === '닭가슴살 샐러드') || RECIPES[0];
+  const r = RECIPES.find(x => x.name === '닭가슴살 샐러드볼') || RECIPES[0];
   cur = blankEntry(); cur.example = true; cur.title = r.name; cur.servings = r.servings; cur.recipeDraft = true;
   cur.ingredients = r.ingredients.map(x => ({ name: x.id ? ING_BY_ID[x.id].ko : x.name, amount: String(x.g), unit: 'g' })); cur.steps = r.steps.join('\n');
   dirty = false; fillForm(); cur.post = buildPost(); $('#postText').value = cur.post; countChars(); setStep(2);
@@ -437,6 +464,14 @@ function bind() {
   $$('.steps button').forEach(b => b.addEventListener('click', () => setStep(b.dataset.step)));
   $$('[data-go]').forEach(b => b.addEventListener('click', () => setStep(b.dataset.go)));
   $('#fileInput').addEventListener('change', e => { addFiles(e.target.files); e.target.value = ''; });
+  $('#mealDate').addEventListener('change', e => { cur.date = e.target.value || today(); touch(); });
+  $('#mealChips').addEventListener('click', e => { const m = e.target.dataset.meal; if (!m) return; cur.meal = m; $$('#mealChips button').forEach(b => b.classList.toggle('on', b === e.target)); touch(); renderTags(); });
+  $('#eaten').addEventListener('input', e => { const v = parseFloat(e.target.value); cur.eaten = v > 0 ? Math.min(10, v) : 1; touch(); renderNutri(); });
+  $('#saveGoals').addEventListener('click', async () => {
+    const k = parseFloat($('#goalKcal').value), p = parseFloat($('#goalProtein').value);
+    GOALS = { kcal: k > 0 ? Math.round(k) : null, protein: p > 0 ? Math.round(p) : null };
+    try { await DB.meta('goals', GOALS); msg($('#goalMsg'), GOALS.kcal || GOALS.protein ? '목표를 저장했어요.' : '목표를 지웠어요.', 'ok'); renderNutri(); } catch (e) { logErr('goals', e); msg($('#goalMsg'), '저장하지 못했어요.', 'err'); }
+  });
   $('#title').addEventListener('input', e => { cur.title = e.target.value; touch(); renderTags(); });
   $('#servings').addEventListener('input', e => { cur.servings = Math.min(20, Math.max(1, parseInt(e.target.value) || 1)); touch(); renderNutri(); });
   $('#stepsText').addEventListener('input', e => { cur.steps = e.target.value; touch(); });
@@ -489,6 +524,7 @@ function registerSW() {
   try { await DB.open(); } catch (e) { logErr('db', e); toast('이 브라우저에서는 저장 기능을 쓸 수 없어요(개인정보 보호 모드인지 확인해 주세요).'); }
   try { await loadData(); } catch (e) { logErr('data', e); toast('재료 자료를 불러오지 못했어요. 인터넷 연결 후 다시 열어 주세요.'); }
   try { if (navigator.storage && navigator.storage.persist && !(await navigator.storage.persisted())) await navigator.storage.persist(); } catch (e) { }
+  try { if (DB.db) GOALS = (await DB.meta('goals')) || GOALS; } catch (e) { }
   checkSupport(); fillForm(); registerSW();
   if (DB.db) { updateBackupBar(); cleanPhotos(); }
 })();

@@ -4,6 +4,7 @@
 "recipes": [
 {
 "name": "김치볶음밥",
+"diet": false,
 "aliases": [],
 "servings": 1,
 "ingredients": [
@@ -49,6 +50,7 @@
 },
 {
 "name": "계란볶음밥",
+"diet": false,
 "aliases": [
 "달걀볶음밥"
 ],
@@ -87,6 +89,7 @@
 },
 {
 "name": "닭가슴살 샐러드",
+"diet": false,
 "aliases": [
 "닭가슴살샐러드",
 "치킨샐러드"
@@ -131,6 +134,7 @@
 },
 {
 "name": "된장찌개",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -176,6 +180,7 @@
 },
 {
 "name": "김치찌개",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -217,6 +222,7 @@
 },
 {
 "name": "순두부찌개",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -266,6 +272,7 @@
 },
 {
 "name": "미역국",
+"diet": false,
 "aliases": [],
 "servings": 3,
 "ingredients": [
@@ -303,6 +310,7 @@
 },
 {
 "name": "소고기무국",
+"diet": false,
 "aliases": [],
 "servings": 3,
 "ingredients": [
@@ -344,6 +352,7 @@
 },
 {
 "name": "콩나물국",
+"diet": false,
 "aliases": [],
 "servings": 3,
 "ingredients": [
@@ -380,6 +389,7 @@
 },
 {
 "name": "제육볶음",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -433,6 +443,7 @@
 },
 {
 "name": "불고기",
+"diet": false,
 "aliases": [
 "소불고기"
 ],
@@ -483,6 +494,7 @@
 },
 {
 "name": "닭볶음탕",
+"diet": false,
 "aliases": [
 "닭도리탕"
 ],
@@ -538,6 +550,7 @@
 },
 {
 "name": "닭가슴살 스테이크",
+"diet": false,
 "aliases": [],
 "servings": 1,
 "ingredients": [
@@ -570,6 +583,7 @@
 },
 {
 "name": "연어 포케",
+"diet": false,
 "aliases": [
 "연어포케",
 "포케"
@@ -618,6 +632,7 @@
 },
 {
 "name": "고등어구이",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -646,6 +661,7 @@
 },
 {
 "name": "두부조림",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -686,6 +702,7 @@
 },
 {
 "name": "계란말이",
+"diet": false,
 "aliases": [
 "달걀말이"
 ],
@@ -720,6 +737,7 @@
 },
 {
 "name": "계란찜",
+"diet": false,
 "aliases": [
 "달걀찜"
 ],
@@ -751,6 +769,7 @@
 },
 {
 "name": "시금치나물",
+"diet": false,
 "aliases": [
 "시금치무침"
 ],
@@ -785,6 +804,7 @@
 },
 {
 "name": "콩나물무침",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -821,6 +841,7 @@
 },
 {
 "name": "감자조림",
+"diet": false,
 "aliases": [],
 "servings": 3,
 "ingredients": [
@@ -857,6 +878,7 @@
 },
 {
 "name": "애호박볶음",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -893,6 +915,7 @@
 },
 {
 "name": "잡채",
+"diet": false,
 "aliases": [],
 "servings": 4,
 "ingredients": [
@@ -946,6 +969,7 @@
 },
 {
 "name": "비빔밥",
+"diet": false,
 "aliases": [],
 "servings": 1,
 "ingredients": [
@@ -991,6 +1015,7 @@
 },
 {
 "name": "참치마요덮밥",
+"diet": false,
 "aliases": [
 "참치마요"
 ],
@@ -1029,6 +1054,7 @@
 },
 {
 "name": "오므라이스",
+"diet": false,
 "aliases": [],
 "servings": 1,
 "ingredients": [
@@ -1073,6 +1099,7 @@
 },
 {
 "name": "카레라이스",
+"diet": false,
 "aliases": [
 "카레"
 ],
@@ -1116,6 +1143,7 @@
 },
 {
 "name": "떡볶이",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1160,6 +1188,7 @@
 },
 {
 "name": "잔치국수",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1205,6 +1234,7 @@
 },
 {
 "name": "비빔국수",
+"diet": false,
 "aliases": [],
 "servings": 1,
 "ingredients": [
@@ -1249,6 +1279,7 @@
 },
 {
 "name": "토마토 파스타",
+"diet": false,
 "aliases": [
 "토마토파스타"
 ],
@@ -1288,6 +1319,7 @@
 },
 {
 "name": "알리오 올리오",
+"diet": false,
 "aliases": [
 "알리오올리오",
 "오일파스타"
@@ -1323,6 +1355,7 @@
 },
 {
 "name": "새우볶음밥",
+"diet": false,
 "aliases": [],
 "servings": 1,
 "ingredients": [
@@ -1367,6 +1400,7 @@
 },
 {
 "name": "오징어볶음",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1419,6 +1453,7 @@
 },
 {
 "name": "생선구이(대구)",
+"diet": false,
 "aliases": [
 "대구구이"
 ],
@@ -1448,6 +1483,7 @@
 },
 {
 "name": "삼겹살 구이",
+"diet": false,
 "aliases": [
 "삼겹살구이",
 "삼겹살"
@@ -1483,6 +1519,7 @@
 },
 {
 "name": "소고기 스테이크",
+"diet": false,
 "aliases": [
 "스테이크"
 ],
@@ -1521,6 +1558,7 @@
 },
 {
 "name": "토마토 달걀볶음",
+"diet": false,
 "aliases": [
 "토마토계란볶음",
 "토달볶"
@@ -1560,6 +1598,7 @@
 },
 {
 "name": "오트밀 죽",
+"diet": false,
 "aliases": [
 "오트밀"
 ],
@@ -1590,6 +1629,7 @@
 },
 {
 "name": "요거트 볼",
+"diet": false,
 "aliases": [
 "요거트볼"
 ],
@@ -1624,6 +1664,7 @@
 },
 {
 "name": "샌드위치",
+"diet": false,
 "aliases": [
 "햄치즈샌드위치"
 ],
@@ -1662,6 +1703,7 @@
 },
 {
 "name": "토스트",
+"diet": false,
 "aliases": [
 "계란토스트"
 ],
@@ -1700,6 +1742,7 @@
 },
 {
 "name": "두부 샐러드",
+"diet": false,
 "aliases": [
 "두부샐러드"
 ],
@@ -1746,6 +1789,7 @@
 },
 {
 "name": "버섯볶음",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1786,6 +1830,7 @@
 },
 {
 "name": "배추된장국",
+"diet": false,
 "aliases": [],
 "servings": 3,
 "ingredients": [
@@ -1818,6 +1863,7 @@
 },
 {
 "name": "어묵볶음",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1854,6 +1900,7 @@
 },
 {
 "name": "부추전",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1890,6 +1937,7 @@
 },
 {
 "name": "감자전",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -1922,6 +1970,7 @@
 },
 {
 "name": "고구마 구이",
+"diet": false,
 "aliases": [
 "군고구마"
 ],
@@ -1939,6 +1988,7 @@
 },
 {
 "name": "소고기 덮밥",
+"diet": false,
 "aliases": [
 "규동"
 ],
@@ -1981,6 +2031,7 @@
 },
 {
 "name": "닭다리살 덮밥",
+"diet": false,
 "aliases": [
 "치킨덮밥",
 "데리야끼덮밥"
@@ -2028,6 +2079,7 @@
 },
 {
 "name": "굴국밥",
+"diet": false,
 "aliases": [],
 "servings": 2,
 "ingredients": [
@@ -2065,6 +2117,961 @@
 "굴을 넣고 살짝 익힌다.",
 "소금·마늘로 간하고 밥에 붓는다.",
 "부추를 올린다."
+]
+},
+{
+"name": "닭가슴살 현미덮밥",
+"diet": true,
+"aliases": [
+"닭가슴살덮밥"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "brown_rice",
+"g": 150
+},
+{
+"id": "chicken_breast",
+"g": 120
+},
+{
+"id": "onion",
+"g": 40
+},
+{
+"id": "broccoli",
+"g": 50
+},
+{
+"id": "soy_sauce",
+"g": 8
+},
+{
+"id": "garlic",
+"g": 3
+},
+{
+"id": "olive_oil",
+"g": 4
+}
+],
+"steps": [
+"닭가슴살을 한입 크기로 썰어 올리브유에 굽는다.",
+"양파·브로콜리를 넣고 간장·마늘로 볶는다.",
+"현미밥 위에 올린다."
+]
+},
+{
+"name": "닭가슴살 샐러드볼",
+"diet": true,
+"aliases": [
+"샐러드볼"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "chicken_breast_cooked",
+"g": 100
+},
+{
+"id": "romaine",
+"g": 60
+},
+{
+"id": "tomato",
+"g": 80
+},
+{
+"id": "cucumber",
+"g": 50
+},
+{
+"id": "boiled_egg",
+"g": 50
+},
+{
+"id": "greek_yogurt",
+"g": 30
+},
+{
+"id": "lemon_juice",
+"g": 5
+}
+],
+"steps": [
+"채소를 씻어 먹기 좋게 썬다.",
+"익힌 닭가슴살과 삶은 달걀을 썰어 올린다.",
+"그릭 요거트에 레몬즙을 섞어 드레싱으로 곁들인다."
+]
+},
+{
+"name": "두부 스테이크",
+"diet": true,
+"aliases": [
+"두부스테이크"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "tofu",
+"g": 200
+},
+{
+"id": "onion",
+"g": 30
+},
+{
+"id": "egg_white",
+"g": 33
+},
+{
+"id": "soy_sauce",
+"g": 8
+},
+{
+"id": "olive_oil",
+"g": 5
+},
+{
+"id": "broccoli",
+"g": 60
+}
+],
+"steps": [
+"두부의 물기를 빼고 으깬다.",
+"다진 양파·달걀흰자를 섞어 동그랗게 빚는다.",
+"올리브유를 두른 팬에 앞뒤로 굽고 간장을 살짝 바른다.",
+"데친 브로콜리를 곁들인다."
+]
+},
+{
+"name": "두부 덮밥",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "brown_rice",
+"g": 130
+},
+{
+"id": "tofu",
+"g": 150
+},
+{
+"id": "onion",
+"g": 40
+},
+{
+"id": "green_onion",
+"g": 10
+},
+{
+"id": "soy_sauce",
+"g": 10
+},
+{
+"id": "garlic",
+"g": 3
+},
+{
+"id": "canola_oil",
+"g": 4
+}
+],
+"steps": [
+"두부를 깍둑 썰어 노릇하게 굽는다.",
+"양파를 넣고 간장·마늘·물로 조린다.",
+"현미밥 위에 올리고 파를 뿌린다."
+]
+},
+{
+"name": "달걀흰자 스크램블",
+"diet": true,
+"aliases": [
+"흰자스크램블",
+"계란흰자 스크램블"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "egg_white",
+"g": 132
+},
+{
+"id": "egg",
+"g": 50
+},
+{
+"id": "spinach",
+"g": 40
+},
+{
+"id": "tomato",
+"g": 60
+},
+{
+"id": "olive_oil",
+"g": 3
+},
+{
+"id": "salt",
+"g": 1
+}
+],
+"steps": [
+"달걀흰자와 달걀을 풀고 소금을 넣는다.",
+"올리브유에 시금치·토마토를 살짝 볶는다.",
+"달걀물을 붓고 부드럽게 저어 익힌다."
+]
+},
+{
+"name": "그릭요거트 볼",
+"diet": true,
+"aliases": [
+"그릭요거트볼"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "greek_yogurt",
+"g": 150
+},
+{
+"id": "blueberry",
+"g": 50
+},
+{
+"id": "banana",
+"g": 50
+},
+{
+"id": "chia",
+"g": 5
+},
+{
+"id": "almond",
+"g": 10
+}
+],
+"steps": [
+"그릭 요거트를 그릇에 담는다.",
+"블루베리·바나나를 올린다.",
+"치아씨드와 아몬드를 뿌린다."
+]
+},
+{
+"name": "오트밀 저지방우유",
+"diet": true,
+"aliases": [
+"오버나이트 오트밀",
+"오버나이트오트밀"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "oats",
+"g": 40
+},
+{
+"id": "milk_low",
+"g": 150
+},
+{
+"id": "greek_yogurt",
+"g": 50
+},
+{
+"id": "blueberry",
+"g": 40
+},
+{
+"id": "chia",
+"g": 5
+}
+],
+"steps": [
+"오트밀·우유·요거트·치아씨드를 섞는다.",
+"냉장고에서 하룻밤 불린다.",
+"블루베리를 올려 먹는다."
+]
+},
+{
+"name": "연어 스테이크",
+"diet": true,
+"aliases": [
+"연어구이"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "salmon",
+"g": 150
+},
+{
+"id": "asparagus",
+"g": 80
+},
+{
+"id": "lemon_juice",
+"g": 5
+},
+{
+"id": "olive_oil",
+"g": 4
+},
+{
+"id": "salt",
+"g": 1
+}
+],
+"steps": [
+"연어에 소금을 뿌린다.",
+"올리브유를 두른 팬에 껍질 쪽부터 굽는다.",
+"아스파라거스를 함께 굽고 레몬즙을 뿌린다."
+]
+},
+{
+"name": "소고기 우둔 볶음",
+"diet": true,
+"aliases": [
+"우둔살볶음"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "beef_round",
+"g": 120
+},
+{
+"id": "paprika",
+"g": 60
+},
+{
+"id": "onion",
+"g": 40
+},
+{
+"id": "white_mush",
+"g": 50
+},
+{
+"id": "soy_sauce",
+"g": 8
+},
+{
+"id": "garlic",
+"g": 3
+},
+{
+"id": "olive_oil",
+"g": 4
+}
+],
+"steps": [
+"소고기를 채 썬다.",
+"올리브유에 마늘·소고기를 볶는다.",
+"채소를 넣고 간장으로 간해 볶는다."
+]
+},
+{
+"name": "돼지 안심 수육",
+"diet": true,
+"aliases": [
+"안심수육"
+],
+"servings": 2,
+"ingredients": [
+{
+"id": "pork_tender",
+"g": 300
+},
+{
+"id": "onion",
+"g": 60
+},
+{
+"id": "garlic",
+"g": 10
+},
+{
+"id": "ginger",
+"g": 5
+},
+{
+"id": "cabbage",
+"g": 150
+},
+{
+"name": "쌈장",
+"g": 20
+}
+],
+"steps": [
+"물에 양파·마늘·생강을 넣고 끓인다.",
+"안심을 넣고 30분 정도 삶는다.",
+"얇게 썰어 데친 양배추와 곁들인다."
+]
+},
+{
+"name": "닭가슴살 볶음밥",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "brown_rice",
+"g": 150
+},
+{
+"id": "chicken_breast",
+"g": 100
+},
+{
+"id": "egg",
+"g": 50
+},
+{
+"id": "onion",
+"g": 30
+},
+{
+"id": "carrot",
+"g": 20
+},
+{
+"id": "zucchini",
+"g": 30
+},
+{
+"id": "soy_sauce",
+"g": 5
+},
+{
+"id": "olive_oil",
+"g": 5
+}
+],
+"steps": [
+"닭가슴살과 채소를 잘게 썬다.",
+"올리브유에 닭가슴살과 채소를 볶는다.",
+"달걀을 스크램블하고 현미밥·간장을 넣어 볶는다."
+]
+},
+{
+"name": "양배추 달걀부침",
+"diet": true,
+"aliases": [
+"양배추전",
+"오코노미야끼"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "cabbage",
+"g": 150
+},
+{
+"id": "egg",
+"g": 100
+},
+{
+"id": "flour",
+"g": 10
+},
+{
+"id": "green_onion",
+"g": 10
+},
+{
+"id": "canola_oil",
+"g": 4
+},
+{
+"id": "salt",
+"g": 1
+}
+],
+"steps": [
+"양배추를 가늘게 채 썬다.",
+"달걀·밀가루·소금을 넣어 섞는다.",
+"약불 팬에 두툼하게 부친다."
+]
+},
+{
+"name": "곤약 비빔면",
+"diet": true,
+"aliases": [
+"곤약면"
+],
+"servings": 1,
+"ingredients": [
+{
+"name": "곤약면",
+"g": 200
+},
+{
+"id": "cucumber",
+"g": 50
+},
+{
+"id": "boiled_egg",
+"g": 50
+},
+{
+"name": "고추장",
+"g": 15
+},
+{
+"id": "vinegar",
+"g": 8
+},
+{
+"id": "sesame_oil",
+"g": 3
+}
+],
+"steps": [
+"곤약면을 헹궈 물기를 뺀다.",
+"고추장·식초·참기름으로 양념한다.",
+"오이와 삶은 달걀을 올린다."
+]
+},
+{
+"name": "두부면 파스타",
+"diet": true,
+"aliases": [
+"두부면"
+],
+"servings": 1,
+"ingredients": [
+{
+"name": "두부면",
+"g": 150
+},
+{
+"id": "tomato",
+"g": 150
+},
+{
+"id": "onion",
+"g": 30
+},
+{
+"id": "garlic",
+"g": 5
+},
+{
+"id": "shrimp",
+"g": 60
+},
+{
+"id": "olive_oil",
+"g": 5
+}
+],
+"steps": [
+"두부면을 헹궈 물기를 뺀다.",
+"올리브유에 마늘·양파·새우를 볶는다.",
+"토마토를 으깨 넣고 졸인 뒤 두부면을 넣어 버무린다."
+]
+},
+{
+"name": "버섯 두부 된장국",
+"diet": true,
+"aliases": [],
+"servings": 2,
+"ingredients": [
+{
+"id": "tofu",
+"g": 150
+},
+{
+"id": "enoki",
+"g": 80
+},
+{
+"id": "zucchini",
+"g": 80
+},
+{
+"id": "miso",
+"g": 25
+},
+{
+"id": "anchovy",
+"g": 8
+},
+{
+"id": "green_onion",
+"g": 10
+}
+],
+"steps": [
+"멸치로 육수를 낸다.",
+"된장을 풀고 애호박·두부를 넣어 끓인다.",
+"팽이버섯과 파를 넣고 한소끔 끓인다."
+]
+},
+{
+"name": "닭가슴살 쌈밥",
+"diet": true,
+"aliases": [
+"쌈밥"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "brown_rice",
+"g": 130
+},
+{
+"id": "chicken_breast_cooked",
+"g": 100
+},
+{
+"id": "lettuce",
+"g": 50
+},
+{
+"id": "cucumber",
+"g": 40
+},
+{
+"name": "쌈장",
+"g": 10
+}
+],
+"steps": [
+"익힌 닭가슴살을 얇게 썬다.",
+"상추에 현미밥·닭가슴살·오이를 올린다.",
+"쌈장을 조금 곁들여 싼다."
+]
+},
+{
+"name": "퀴노아 샐러드",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "quinoa",
+"g": 100
+},
+{
+"id": "tomato",
+"g": 80
+},
+{
+"id": "cucumber",
+"g": 60
+},
+{
+"id": "paprika",
+"g": 40
+},
+{
+"id": "chickpea",
+"g": 50
+},
+{
+"id": "olive_oil",
+"g": 5
+},
+{
+"id": "lemon_juice",
+"g": 8
+}
+],
+"steps": [
+"익힌 퀴노아를 식힌다.",
+"채소를 잘게 썬다.",
+"병아리콩과 함께 섞고 올리브유·레몬즙으로 버무린다."
+]
+},
+{
+"name": "코티지치즈 샐러드",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "cottage",
+"g": 100
+},
+{
+"id": "romaine",
+"g": 50
+},
+{
+"id": "tomato",
+"g": 60
+},
+{
+"id": "kiwi",
+"g": 75
+},
+{
+"id": "olive_oil",
+"g": 3
+}
+],
+"steps": [
+"채소와 키위를 먹기 좋게 썬다.",
+"코티지 치즈를 올린다.",
+"올리브유를 살짝 뿌린다."
+]
+},
+{
+"name": "칠면조 가슴살 샌드위치",
+"diet": true,
+"aliases": [
+"칠면조샌드위치"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "bread",
+"g": 56
+},
+{
+"id": "turkey_breast",
+"g": 80
+},
+{
+"id": "romaine",
+"g": 20
+},
+{
+"id": "tomato",
+"g": 40
+},
+{
+"id": "greek_yogurt",
+"g": 15
+}
+],
+"steps": [
+"칠면조 가슴살을 구워 얇게 썬다.",
+"빵에 그릭 요거트를 바른다.",
+"채소와 고기를 올려 덮는다."
+]
+},
+{
+"name": "콜리플라워 볶음밥",
+"diet": true,
+"aliases": [
+"콜리플라워라이스"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "cauliflower",
+"g": 200
+},
+{
+"id": "egg",
+"g": 50
+},
+{
+"id": "chicken_breast",
+"g": 80
+},
+{
+"id": "onion",
+"g": 30
+},
+{
+"id": "carrot",
+"g": 20
+},
+{
+"id": "soy_sauce",
+"g": 5
+},
+{
+"id": "olive_oil",
+"g": 5
+}
+],
+"steps": [
+"콜리플라워를 쌀알 크기로 다진다.",
+"닭가슴살과 채소를 볶는다.",
+"콜리플라워와 달걀을 넣고 간장으로 간해 볶는다."
+]
+},
+{
+"name": "닭가슴살 채소볶음",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "chicken_breast",
+"g": 120
+},
+{
+"id": "broccoli",
+"g": 60
+},
+{
+"id": "paprika",
+"g": 50
+},
+{
+"id": "onion",
+"g": 30
+},
+{
+"id": "oyster_sauce",
+"g": 8
+},
+{
+"id": "garlic",
+"g": 3
+},
+{
+"id": "olive_oil",
+"g": 4
+}
+],
+"steps": [
+"닭가슴살과 채소를 한입 크기로 썬다.",
+"올리브유에 마늘·닭가슴살을 볶는다.",
+"채소와 굴소스를 넣고 센불에 볶는다."
+]
+},
+{
+"name": "보리밥 나물비빔",
+"diet": true,
+"aliases": [
+"보리비빔밥"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "barley",
+"g": 150
+},
+{
+"id": "spinach",
+"g": 50
+},
+{
+"id": "soy_sprout",
+"g": 50
+},
+{
+"id": "carrot",
+"g": 30
+},
+{
+"id": "egg",
+"g": 50
+},
+{
+"name": "고추장",
+"g": 10
+},
+{
+"id": "sesame_oil",
+"g": 3
+}
+],
+"steps": [
+"나물을 데쳐 무친다.",
+"보리밥 위에 나물과 달걀을 올린다.",
+"고추장과 참기름을 넣어 비빈다."
+]
+},
+{
+"name": "고구마 달걀 도시락",
+"diet": true,
+"aliases": [
+"고구마도시락"
+],
+"servings": 1,
+"ingredients": [
+{
+"id": "sweet_potato",
+"g": 120
+},
+{
+"id": "boiled_egg",
+"g": 100
+},
+{
+"id": "broccoli",
+"g": 60
+}
+],
+"steps": [
+"고구마를 찌거나 굽는다.",
+"달걀을 삶는다.",
+"브로콜리를 데쳐 함께 담는다."
+]
+},
+{
+"name": "새우 아스파라거스 볶음",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "shrimp",
+"g": 120
+},
+{
+"id": "asparagus",
+"g": 100
+},
+{
+"id": "garlic",
+"g": 5
+},
+{
+"id": "olive_oil",
+"g": 5
+},
+{
+"id": "salt",
+"g": 1
+}
+],
+"steps": [
+"아스파라거스를 먹기 좋게 자른다.",
+"올리브유에 마늘을 볶다가 새우를 넣는다.",
+"아스파라거스를 넣고 소금으로 간한다."
+]
+},
+{
+"name": "셀러리 사과 샐러드",
+"diet": true,
+"aliases": [],
+"servings": 1,
+"ingredients": [
+{
+"id": "celery",
+"g": 60
+},
+{
+"id": "apple",
+"g": 100
+},
+{
+"id": "walnut",
+"g": 10
+},
+{
+"id": "greek_yogurt",
+"g": 40
+}
+],
+"steps": [
+"셀러리와 사과를 썬다.",
+"그릭 요거트에 버무린다.",
+"호두를 올린다."
 ]
 }
 ]
