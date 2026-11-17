@@ -134,3 +134,10 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
 .day{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.3rem .8rem;align-items:baseline;padding:.7rem .9rem;border-radius:12px;background:var(--sage-l);margin-top:.4rem}
 .day b{font-size:1.02rem}.day span{font-size:.88rem;color:var(--sage-d)}
 .lib li.day{flex-direction:row;background:var(--sage-l);border:0;overflow:visible}
+
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin:.7rem 0}
+.cards figure{margin:0}
+.cards img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#f3efe4}
+.cards figcaption{font-size:.8rem;color:var(--muted);text-align:center;margin-top:.2rem}
+#closeCtl .mini{display:flex;margin:.2rem 0}
+#closeCtl input[type=range]{flex:1;min-height:36px;accent-color:var(--sage)}

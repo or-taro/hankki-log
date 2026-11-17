@@ -1,6 +1,6 @@
 'use strict';
 /* 한끼로그 1단계 — 서버 없음. 데이터는 이 브라우저의 IndexedDB에만 저장한다. */
-const VERSION = '0.2.0';
+const VERSION = '0.3.1';
 const MAX_PHOTOS = 10, MAX_BYTES = 30 * 1024 * 1024, LONG_EDGE = 1600, MAX_CAPTION = 2200, MAX_TAGS = 5;
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const errors = [];
@@ -319,6 +319,171 @@ async function savePhotos() {
   toast(`사진 ${files.length}장을 내려받았어요.`);
 }
 
+
+/* ---------- 인스타 사진(카드) 만들기: 사진 한 장 → 세로 1080×1350 여러 장 ---------- */
+const CW = 1080, CH = 1350;
+const FONT = '-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Malgun Gothic", sans-serif';
+const THEMES = {
+  ivory: { panel: 'rgba(250,247,240,0.94)', ink: '#2f3a30', sub: '#6b7468', acc: '#557558', line: '#d9d3c4', chip: '#e8efe6' },
+  sage: { panel: 'rgba(95,126,99,0.93)', ink: '#ffffff', sub: '#e3ece1', acc: '#ffffff', line: 'rgba(255,255,255,.35)', chip: 'rgba(255,255,255,.16)' },
+  dark: { panel: 'rgba(38,50,40,0.93)', ink: '#f4f1e8', sub: '#c9d3c4', acc: '#c9dcc4', line: 'rgba(255,255,255,.22)', chip: 'rgba(255,255,255,.10)' }
+};
+const CARD_NAMES = { cover: '표지', close: '가까이', ing: '재료', steps: '만드는 법', nutri: '영양 정보' };
+let cardFiles = [];
+function cardOpts() { if (cur.cards && !cur.cards.font) cur.cards.font = 'pretendard'; return cur.cards || (cur.cards = { font: 'pretendard', theme: 'ivory', on: { cover: true, close: true, ing: true, steps: true, nutri: true }, cx: 0.5, cy: 0.5, z: 1.8 }); }
+async function coverBitmap() {
+  const id = cur.photos[cur.cover]; if (!id) return null;
+  const p = await DB.get('photos', id); if (!p) return null;
+  const url = URL.createObjectURL(p.blob);
+  try { const { img } = await loadImage(p.blob); return img; } finally { URL.revokeObjectURL(url); }
+}
+function drawCover(x, img, cx = 0.5, cy = 0.5, z = 1) {
+  // 사진을 캔버스에 꽉 채운다(필요하면 잘라냄). cx·cy는 잘라낼 중심(0~1), z는 확대.
+  const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+  const s = Math.max(CW / iw, CH / ih) * z; const sw = CW / s, sh = CH / s;
+  const sx = Math.min(Math.max(cx * iw - sw / 2, 0), iw - sw), sy = Math.min(Math.max(cy * ih - sh / 2, 0), ih - sh);
+  x.drawImage(img, sx, sy, sw, sh, 0, 0, CW, CH);
+}
+function blurBg(x, img) {
+  // 작게 줄였다가 다시 키워서 흐린 배경을 만든다(모든 브라우저에서 같은 결과).
+  const t = document.createElement('canvas'); t.width = 36; t.height = 45; const tx = t.getContext('2d');
+  const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height; const s = Math.max(36 / iw, 45 / ih);
+  tx.drawImage(img, (36 - iw * s) / 2, (45 - ih * s) / 2, iw * s, ih * s);
+  x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high'; x.drawImage(t, 0, 0, CW, CH);
+}
+function rr(x, X, Y, w, h, r) { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); }
+function wrap(x, text, maxW) {
+  const out = []; let line = '';
+  for (const word of String(text).split(/(\s+)/)) {
+    if (!word) continue;
+    const test = line + word;
+    if (x.measureText(test).width <= maxW) { line = test; continue; }
+    if (line.trim()) { out.push(line.trim()); line = ''; }
+    if (x.measureText(word).width <= maxW) { line = word.trimStart(); continue; }
+    for (const ch of word) { if (x.measureText(line + ch).width > maxW) { out.push(line); line = ''; } line += ch; }
+  }
+  if (line.trim()) out.push(line.trim());
+  return out;
+}
+const FONTSETS = {
+  pretendard: { label: '프리텐다드', title: ['HK Pretendard', 800], body: ['HK Pretendard', 600] },
+  jua: { label: '주아', title: ['HK Jua', 400], body: ['HK Jua', 400] },
+  dohyeon: { label: '도현', title: ['HK DoHyeon', 400], body: ['HK Pretendard', 600] },
+  gowun: { label: '고운돋움', title: ['HK Gowun', 400], body: ['HK Gowun', 400] }
+};
+const FONT_FILES = [['HK Pretendard', 'Pretendard-SemiBold', 600], ['HK Pretendard', 'Pretendard-ExtraBold', 800], ['HK Jua', 'Jua', 400], ['HK DoHyeon', 'DoHyeon', 400], ['HK Gowun', 'GowunDodum', 400]];
+let fontsAdded = false, curFontSet = FONTSETS.pretendard;
+async function loadFonts(key) {
+  // 앱에 들어 있는 글씨체 파일(OFL 무료 글꼴)을 필요할 때만 불러온다.
+  if (!fontsAdded && 'FontFace' in window) { for (const [fam, file, w] of FONT_FILES) { try { document.fonts.add(new FontFace(fam, `url(fonts/${file}.woff)`, { weight: String(w) })); } catch (e) { logErr('font', e); } } fontsAdded = true; }
+  const fs = FONTSETS[key] || FONTSETS.pretendard;
+  try { await Promise.all([fs.title, fs.body].map(([f, w]) => document.fonts.load(`${w} 40px "${f}"`, '가나다'))); return [fs.title, fs.body].every(([f, w]) => document.fonts.check(`${w} 40px "${f}"`, '가')); }
+  catch (e) { logErr('font', e); return false; }
+}
+function font(x, px, w = 700) { const [f, fw] = w >= 750 ? curFontSet.title : curFontSet.body; x.font = `${fw} ${px}px "${f}", ${FONT}`; }
+function headLine() {
+  const d = cur.date ? new Date(cur.date + 'T00:00') : new Date();
+  return `${d.getMonth() + 1}월 ${d.getDate()}일 ${cur.meal || ''} 식단`.replace(/\s+/g, ' ').trim();
+}
+function panelCard(img, th, title, body) {
+  const c = document.createElement('canvas'); c.width = CW; c.height = CH; const x = c.getContext('2d');
+  blurBg(x, img); x.fillStyle = 'rgba(0,0,0,0.08)'; x.fillRect(0, 0, CW, CH);
+  const M = 70; rr(x, M, M, CW - 2 * M, CH - 2 * M, 44); x.fillStyle = th.panel; x.fill();
+  x.textBaseline = 'top'; x.fillStyle = th.sub; font(x, 34, 600); x.fillText(headLine(), M + 64, M + 64);
+  x.fillStyle = th.ink; font(x, 66, 800); x.fillText(title, M + 64, M + 112);
+  x.fillStyle = th.line; x.fillRect(M + 64, M + 212, CW - 2 * M - 128, 3);
+  body(x, M + 64, M + 250, CW - 2 * M - 128, CH - M - 70);
+  return c;
+}
+function fitLines(x, items, maxW, maxH, sizes, lh = 1.45) {
+  // 글자 크기를 줄여 가며 영역에 맞는 크기를 찾는다.
+  for (const px of sizes) { font(x, px, 600); let h = 0; const L = items.map(t => { const l = wrap(x, t, maxW); h += l.length * px * lh + px * 0.55; return l; }); if (h <= maxH) return { px, L }; }
+  const px = sizes[sizes.length - 1]; font(x, px, 600); return { px, L: items.map(t => wrap(x, t, maxW)), over: true };
+}
+async function makeCards() {
+  const el = $('#cardsMsg'); const o = cardOpts(); const files = []; cardFiles = files; $('#cardsOut').innerHTML = ''; $('#saveCards').hidden = true; msg(el, '');
+  if (!cur.photos.length) return msg(el, '먼저 1단계에서 완성 사진을 올려 주세요.', 'err');
+  const img = await coverBitmap(); if (!img) return msg(el, '사진을 읽지 못했어요.', 'err');
+  msg(el, '만드는 중…');
+  curFontSet = FONTSETS[o.font] || FONTSETS.pretendard;
+  const fontOk = await loadFonts(o.font || 'pretendard');
+  const th = THEMES[o.theme] || THEMES.ivory; const c = calc(); const name = cur.title.trim() || '오늘의 한 끼'; const out = []; const notes = [];
+  if (o.on.cover) {
+    const cv = document.createElement('canvas'); cv.width = CW; cv.height = CH; const x = cv.getContext('2d');
+    drawCover(x, img);
+    const g = x.createLinearGradient(0, CH * 0.55, 0, CH); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.62)'); x.fillStyle = g; x.fillRect(0, CH * 0.55, CW, CH * 0.45);
+    x.textBaseline = 'alphabetic'; x.fillStyle = '#ffffff'; font(x, 40, 600); x.fillText(headLine(), 72, CH - 210);
+    font(x, 84, 800); const tl = wrap(x, name, CW - 144).slice(0, 2); tl.forEach((t, i) => x.fillText(t, 72, CH - 210 + 100 + i * 100 - (tl.length - 1) * 100));
+    out.push(['cover', cv]);
+  }
+  if (o.on.close) { const cv = document.createElement('canvas'); cv.width = CW; cv.height = CH; drawCover(cv.getContext('2d'), img, o.cx, o.cy, o.z); out.push(['close', cv]); }
+  const ings = cur.ingredients.filter(r => r.name.trim());
+  if (o.on.ing) {
+    if (!ings.length) notes.push('재료가 없어 ‘재료’ 장은 빠졌어요.');
+    else out.push(['ing', panelCard(img, th, `재료 · ${c.sv}인분`, (x, X, Y, W, Hb) => {
+      const rows = ings.map(r => [r.name.trim(), r.amount ? `${r.amount}${r.unit}` : '']);
+      let px = 46; for (; px >= 30; px -= 2) { if (rows.length * px * 1.9 <= Hb - Y) break; }
+      const two = rows.length * px * 1.9 > Hb - Y; const cols = two ? 2 : 1; const cw = (W - (cols - 1) * 40) / cols; const per = Math.ceil(rows.length / cols);
+      if (two) { px = 34; }
+      rows.forEach(([n, a], i) => {
+        const col = Math.floor(i / per), row = i % per; const cx0 = X + col * (cw + 40), cy0 = Y + row * px * 1.9;
+        if (cy0 + px > Hb) return;
+        x.textBaseline = 'top'; font(x, px, 600); x.fillStyle = th.ink;
+        let nm = n; while (x.measureText(nm).width > cw * 0.66 && nm.length > 1) nm = nm.slice(0, -1); if (nm !== n) nm = nm.slice(0, -1) + '…';
+        x.fillText(nm, cx0, cy0); x.fillStyle = th.acc; font(x, px, 700); const aw = x.measureText(a).width; x.fillText(a, cx0 + cw - aw, cy0);
+        x.fillStyle = th.line; x.fillRect(cx0, cy0 + px * 1.45, cw, 2);
+      });
+    })]);
+  }
+  const steps = cur.steps.split('\n').map(t => t.trim().replace(/^\d+[.)]\s*/, '')).filter(Boolean);
+  if (o.on.steps) {
+    if (!steps.length) notes.push('만드는 법이 없어 그 장은 빠졌어요.');
+    else out.push(['steps', panelCard(img, th, '만드는 법', (x, X, Y, W, Hb) => {
+      const f = fitLines(x, steps, W - 90, Hb - Y, [46, 42, 38, 34, 30]); let y = Y; const lh = f.px * 1.45;
+      f.L.forEach((lines, i) => {
+        if (y + lh > Hb) return;
+        rr(x, X, y - 4, 60, 60, 30); x.fillStyle = th.chip; x.fill(); x.fillStyle = th.acc; font(x, 32, 800); x.textBaseline = 'top'; const nw = x.measureText(String(i + 1)).width; x.fillText(String(i + 1), X + 30 - nw / 2, y + 9);
+        font(x, f.px, 600); x.fillStyle = th.ink; lines.forEach(l => { if (y + lh <= Hb) x.fillText(l, X + 90, y); y += lh; }); y += f.px * 0.55;
+      });
+      if (f.over) notes.push('만드는 법이 길어서 일부가 잘렸어요. 단계를 줄이면 다 들어가요.');
+    })]);
+  }
+  if (o.on.nutri) {
+    if (!c.used) notes.push('계산된 영양 정보가 없어 그 장은 빠졌어요.');
+    else out.push(['nutri', panelCard(img, th, '예상 영양 정보', (x, X, Y, W, Hb) => {
+      x.textBaseline = 'top'; x.fillStyle = th.sub; font(x, 36, 600); x.fillText(`먹은 양 ${fmt(c.eaten, 2)}인분 기준`, X, Y);
+      x.fillStyle = th.ink; font(x, 128, 800); const kc = `${fmt(c.ate.kcal)}`; x.fillText(kc, X, Y + 60); const kw = x.measureText(kc).width;
+      font(x, 52, 700); x.fillStyle = th.acc; x.fillText('kcal', X + kw + 18, Y + 128);
+      const boxes = [['탄수화물', c.ate.carb], ['단백질', c.ate.protein], ['지방', c.ate.fat]]; const bw = (W - 40) / 3; const by = Y + 250;
+      boxes.forEach(([k, v], i) => { const bx = X + i * (bw + 20); rr(x, bx, by, bw, 190, 28); x.fillStyle = th.chip; x.fill(); x.fillStyle = th.sub; font(x, 34, 600); x.fillText(k, bx + 30, by + 30); x.fillStyle = th.ink; font(x, 62, 800); x.fillText(`${fmt(v)}g`, bx + 30, by + 88); });
+      let y = by + 250;
+      const gp = []; if (GOALS.kcal) gp.push(`열량 ${fmt(c.ate.kcal / GOALS.kcal * 100)}%`); if (GOALS.protein) gp.push(`단백질 ${fmt(c.ate.protein / GOALS.protein * 100)}%`);
+      if (gp.length) { x.fillStyle = th.acc; font(x, 42, 700); x.fillText(`내 하루 목표의 ${gp.join(' · ')}`, X, y); y += 80; }
+      x.fillStyle = th.sub; font(x, 30, 500);
+      const note = ['입력한 재료로 계산한 추정값이에요.', c.missing ? `재료 ${c.missing}개는 계산에서 빠졌어요.` : '', '자료: USDA 영양 데이터베이스'].filter(Boolean);
+      let ny = Hb - note.length * 46; note.forEach(t => { x.fillText(t, X, ny); ny += 46; });
+    })]);
+  }
+  if (!fontOk) notes.push('글씨체 파일을 불러오지 못해 휴대폰 기본 글씨체로 만들었어요. 인터넷 연결 후 다시 만들어 보세요.');
+  if (!out.length) return msg(el, notes.join('\n') || '넣을 장을 하나 이상 골라 주세요.', 'err');
+  const base = (name).replace(/[\\/:*?"<>|\s]+/g, '_');
+  for (let i = 0; i < out.length; i++) {
+    const [k, cv] = out[i]; const blob = await new Promise(r => cv.toBlob(r, 'image/jpeg', 0.9));
+    const f = new File([blob], `${base}_${String(i + 1).padStart(2, '0')}_${CARD_NAMES[k]}.jpg`, { type: 'image/jpeg' }); files.push(f);
+    const fig = document.createElement('figure'); const im = document.createElement('img'); im.alt = CARD_NAMES[k]; im.src = URL.createObjectURL(blob);
+    fig.appendChild(im); const cap = document.createElement('figcaption'); cap.textContent = `${i + 1}. ${CARD_NAMES[k]}`; fig.appendChild(cap); $('#cardsOut').appendChild(fig);
+  }
+  $('#saveCards').hidden = false;
+  msg(el, `${out.length}장을 만들었어요.` + (notes.length ? '\n' + notes.join('\n') : ''), notes.length ? '' : 'ok');
+}
+async function saveFiles(files) {
+  if (navigator.canShare && navigator.canShare({ files })) {
+    try { await navigator.share({ files }); return; } catch (e) { if (e.name === 'AbortError') return; logErr('share', e); }
+  }
+  for (const f of files) { const a = document.createElement('a'); a.href = URL.createObjectURL(f); a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); await new Promise(r => setTimeout(r, 300)); }
+  toast(`사진 ${files.length}장을 내려받았어요.`);
+}
+
 /* ---------- 저장·보관함 ---------- */
 async function cleanPhotos() {
   // 어떤 콘텐츠에도 쓰이지 않는 사진을 지운다(편집 중인 콘텐츠의 사진은 남긴다).
@@ -447,6 +612,8 @@ function fillForm() {
   $$('#toneChips button').forEach(b => b.classList.toggle('on', b.dataset.tone === cur.tone));
   $('#incIng').checked = cur.inc.ing; $('#incSteps').checked = cur.inc.steps; $('#incNutri').checked = cur.inc.nutri; $('#incTip').checked = cur.inc.tip;
   cur._tagsTouched = cur.tags.length > 0;
+  const o = cardOpts(); $$('#paneCards [data-card]').forEach(i => i.checked = !!o.on[i.dataset.card]); $$('#themeChips button').forEach(b => b.classList.toggle('on', b.dataset.theme === o.theme)); $$('#fontChips button').forEach(b => b.classList.toggle('on', b.dataset.font === o.font));
+  $('#cropX').value = o.cx; $('#cropY').value = o.cy; $('#cropZ').value = o.z; cardFiles = []; $('#cardsOut').innerHTML = ''; $('#saveCards').hidden = true; msg($('#cardsMsg'), '');
   renderPhotos(); renderIng(); renderTags(); countChars();
 }
 function loadExample() {
@@ -478,8 +645,15 @@ function bind() {
   $('#addIng').addEventListener('click', () => { cur.ingredients.push({ name: '', amount: '', unit: 'g' }); touch(); renderIng(); const ins = $$('#ingBody input[data-f=name]'); ins[ins.length - 1].focus(); });
   $('#findRecipe').addEventListener('click', findRecipes);
   $('#exampleBtn').addEventListener('click', loadExample);
-  $('#tabPost').addEventListener('click', () => { $('#tabPost').classList.add('on'); $('#tabReel').classList.remove('on'); $('#panePost').hidden = false; $('#paneReel').hidden = true; $('#tabPost').setAttribute('aria-selected', 'true'); $('#tabReel').setAttribute('aria-selected', 'false'); });
-  $('#tabReel').addEventListener('click', () => { $('#tabReel').classList.add('on'); $('#tabPost').classList.remove('on'); $('#panePost').hidden = true; $('#paneReel').hidden = false; $('#tabReel').setAttribute('aria-selected', 'true'); $('#tabPost').setAttribute('aria-selected', 'false'); });
+  const TABS = [['tabPost', 'panePost'], ['tabCards', 'paneCards'], ['tabReel', 'paneReel']];
+  $('#tabCards').addEventListener('click', () => loadFonts(cardOpts().font));
+  TABS.forEach(([t]) => $('#' + t).addEventListener('click', () => TABS.forEach(([t2, p2]) => { const on = t2 === t; $('#' + t2).classList.toggle('on', on); $('#' + t2).setAttribute('aria-selected', String(on)); $('#' + p2).hidden = !on; })));
+  $$('#paneCards [data-card]').forEach(i => i.addEventListener('change', () => { cardOpts().on[i.dataset.card] = i.checked; touch(); }));
+  $('#fontChips').addEventListener('click', e => { const f = e.target.dataset.font; if (!f) return; cardOpts().font = f; $$('#fontChips button').forEach(b => b.classList.toggle('on', b === e.target)); touch(); });
+  $('#themeChips').addEventListener('click', e => { const t = e.target.dataset.theme; if (!t) return; cardOpts().theme = t; $$('#themeChips button').forEach(b => b.classList.toggle('on', b === e.target)); touch(); });
+  [['cropX', 'cx'], ['cropY', 'cy'], ['cropZ', 'z']].forEach(([id, k]) => $('#' + id).addEventListener('input', e => { cardOpts()[k] = parseFloat(e.target.value); touch(); }));
+  $('#makeCards').addEventListener('click', async () => { const b = $('#makeCards'); if (b.disabled) return; b.disabled = true; try { await makeCards(); } catch (e) { logErr('cards', e); msg($('#cardsMsg'), '사진을 만들지 못했어요. 오류 정보를 복사해 보내 주세요.', 'err'); } finally { b.disabled = false; } });
+  $('#saveCards').addEventListener('click', () => cardFiles.length && saveFiles(cardFiles));
   $('#toneChips').addEventListener('click', e => { const t = e.target.dataset.tone; if (!t) return; cur.tone = t; $$('#toneChips button').forEach(b => b.classList.toggle('on', b === e.target)); touch(); });
   [['incIng', 'ing'], ['incSteps', 'steps'], ['incNutri', 'nutri'], ['incTip', 'tip']].forEach(([id, k]) => $('#' + id).addEventListener('change', e => { cur.inc[k] = e.target.checked; touch(); }));
   $('#tagChips').addEventListener('click', e => { if (e.target.tagName === 'BUTTON') toggleTag(e.target.textContent); });

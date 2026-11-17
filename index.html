@@ -103,6 +103,7 @@
     <div class="col" data-col="3">
       <div class="tabs" role="tablist">
         <button type="button" role="tab" id="tabPost" class="on" aria-selected="true">게시글</button>
+        <button type="button" role="tab" id="tabCards" aria-selected="false">인스타 사진</button>
         <button type="button" role="tab" id="tabReel" aria-selected="false">릴스</button>
       </div>
       <div id="panePost">
@@ -135,6 +136,44 @@
           <button type="button" id="savePhotos" class="btn ghost">사진 저장</button>
           <button type="button" id="saveEntry" class="btn ghost">보관함에 저장</button>
         </div>
+      </div>
+      <div id="paneCards" hidden>
+        <p class="small muted">완성 사진 한 장으로 인스타 여러 장 게시물(세로 1080×1350)을 만들어요. 휴대폰 안에서 만들고 밖으로 보내지 않아요.</p>
+        <div class="field">
+          <span class="lab">넣을 장</span>
+          <label class="chk"><input type="checkbox" data-card="cover" checked> 표지</label>
+          <label class="chk"><input type="checkbox" data-card="close" checked> 가까이</label>
+          <label class="chk"><input type="checkbox" data-card="ing" checked> 재료</label>
+          <label class="chk"><input type="checkbox" data-card="steps" checked> 만드는 법</label>
+          <label class="chk"><input type="checkbox" data-card="nutri" checked> 영양 정보</label>
+        </div>
+        <div class="field">
+          <span class="lab">글씨체</span>
+          <div class="chips" id="fontChips">
+            <button type="button" data-font="pretendard" class="on" style="font-family:'HK Pretendard',sans-serif;font-weight:800">프리텐다드</button>
+            <button type="button" data-font="jua" style="font-family:'HK Jua',sans-serif">주아</button>
+            <button type="button" data-font="dohyeon" style="font-family:'HK DoHyeon',sans-serif">도현</button>
+            <button type="button" data-font="gowun" style="font-family:'HK Gowun',sans-serif">고운돋움</button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab">색감</span>
+          <div class="chips" id="themeChips">
+            <button type="button" data-theme="ivory" class="on">아이보리</button>
+            <button type="button" data-theme="sage">세이지</button>
+            <button type="button" data-theme="dark">짙은 녹색</button>
+          </div>
+        </div>
+        <div class="field" id="closeCtl">
+          <span class="lab">‘가까이’ 장 위치 · 확대</span>
+          <label class="mini">가로 <input type="range" id="cropX" min="0" max="1" step="0.01" value="0.5"></label>
+          <label class="mini">세로 <input type="range" id="cropY" min="0" max="1" step="0.01" value="0.5"></label>
+          <label class="mini">확대 <input type="range" id="cropZ" min="1.2" max="3" step="0.1" value="1.8"></label>
+        </div>
+        <button type="button" id="makeCards" class="btn wide">사진 만들기</button>
+        <div id="cardsMsg" class="msg small" role="status"></div>
+        <div id="cardsOut" class="cards"></div>
+        <button type="button" id="saveCards" class="btn wide" hidden>만든 사진 모두 저장</button>
       </div>
       <div id="paneReel" hidden>
         <div class="soon">

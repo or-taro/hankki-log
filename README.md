@@ -13,3 +13,7 @@
 ## 구조
 `index.html`, `styles.css`, `app.js`(전체 기능), `sw.js`(오프라인·새 버전 안내), `data/`.
 빌드 과정 없이 GitHub Pages로 그대로 배포합니다.
+
+## 글씨체
+인스타 사진 만들기에 쓰는 글씨체는 SIL Open Font License 1.1 무료 글꼴입니다. 한글 2,350자와 기본 영문·기호만 남겨 크기를 줄였습니다(`fonts/`, 라이선스 파일 포함).
+- Pretendard (Kil Hyung-jin), Jua · Do Hyeon (The Jua / Do Hyeon Project Authors), Gowun Dodum (The Gowun Dodum Project Authors)
